@@ -63,6 +63,25 @@ ul.why{margin:11px 0 0;padding-left:0;list-style:none}
 ul.why li{font-size:12.5px;color:var(--kamenozoki);padding-left:14px;position:relative;
   margin-bottom:2px}
 ul.why li::before{content:"—";position:absolute;left:0;color:var(--asagi)}
+/* 履歴 */
+.hsum{display:flex;gap:22px;flex-wrap:wrap;padding:12px 14px;margin-bottom:14px;
+  border:1px solid var(--line);border-radius:3px;background:rgba(34,64,107,.14)}
+.hsum div{font-size:11px;color:var(--muted);font-family:"IBM Plex Mono",monospace}
+.hsum b{display:block;font-size:18px;color:var(--kinari);font-weight:500;margin-top:2px}
+.hday{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--asagi);
+  letter-spacing:.1em;margin:16px 0 5px;padding-bottom:3px;border-bottom:1px solid var(--line)}
+.hrow{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:baseline;
+  padding:7px 2px;border-bottom:1px solid rgba(169,203,214,.07)}
+.hrow .id{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hrow .id b{font-family:"IBM Plex Mono",monospace;font-size:15px;font-weight:400;
+  letter-spacing:.05em}
+.hrow .id span{font-size:11.5px;color:var(--muted);margin-left:7px}
+.hrow .sc{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--kamenozoki);
+  text-align:right;white-space:nowrap}
+.hrow .rt{font-family:"IBM Plex Mono",monospace;font-size:13px;text-align:right;
+  white-space:nowrap;min-width:112px}
+.hrow .rt .pk{font-size:10.5px;color:var(--muted);display:block;line-height:1.4}
+.pos{color:#7BC98B} .neg{color:#D98A8A} .flat{color:var(--muted)}
 .stale{border:1px solid rgba(232,179,60,.5);background:rgba(232,179,60,.10);
   color:var(--yamabuki);border-radius:3px;padding:11px 14px;margin-bottom:20px;font-size:13px}
 .stale b{font-family:"IBM Plex Mono",monospace}
@@ -280,6 +299,2107 @@ footer b{color:var(--kamenozoki);font-weight:500}
   <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅49%）</li><li>点火前日まで値動きが1年で最も静かな部類だった</li><li>3か月の出来高が1年平均の1.35倍に増えたのに株価は据え置き（吸収）</li><li>5/25/75日線が収束していた（幅2.0%）</li><li>直近の安値が切り上がっている</li></ul>
 </div>
 
+<h2>これまでの初動 <span class="n">past 30 business days</span></h2>
+<p class="lead">過去に初動と判定した銘柄の、その後。左の点数が検知時のスコア、
+右が検知日の終値からの現在値と、その後つけた最高値までの上昇率。</p>
+<div class="hsum">
+  <div>件数<b>418</b></div>
+  <div>現在値 中央値<b class="neg">-3.1%</b></div>
+  <div>最高値まで 中央値<b class="pos">+2.0%</b></div>
+  <div>+20%到達<b>2%</b></div>
+  <div>現在プラス<b>25%</b></div>
+</div><div class="hday">2026-08-03 (1営業日経過)</div><div class="hrow">
+  <div class="id"><b>6810</b><span></span></div>
+  <div class="sc">66点<br>2,570円</div>
+  <div class="rt"><span class="neg">-4.4%</span>
+    <span class="pk">最高 +0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7844</b><span></span></div>
+  <div class="sc">65点<br>490円</div>
+  <div class="rt"><span class="neg">-1.2%</span>
+    <span class="pk">最高 +0.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>368A</b><span></span></div>
+  <div class="sc">64点<br>1,464円</div>
+  <div class="rt"><span class="neg">-1.3%</span>
+    <span class="pk">最高 +2.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6952</b><span></span></div>
+  <div class="sc">64点<br>2,164円</div>
+  <div class="rt"><span class="pos">+3.9%</span>
+    <span class="pk">最高 +4.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2782</b><span></span></div>
+  <div class="sc">63点<br>4,195円</div>
+  <div class="rt"><span class="neg">-5.4%</span>
+    <span class="pk">最高 -2.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8739</b><span></span></div>
+  <div class="sc">63点<br>2,419円</div>
+  <div class="rt"><span class="flat">-0.2%</span>
+    <span class="pk">最高 +1.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6381</b><span></span></div>
+  <div class="sc">62点<br>1,872円</div>
+  <div class="rt"><span class="flat">+0.2%</span>
+    <span class="pk">最高 +1.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2121</b><span></span></div>
+  <div class="sc">61点<br>3,400円</div>
+  <div class="rt"><span class="neg">-5.6%</span>
+    <span class="pk">最高 -1.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3355</b><span></span></div>
+  <div class="sc">61点<br>1,785円</div>
+  <div class="rt"><span class="neg">-2.6%</span>
+    <span class="pk">最高 -0.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8704</b><span></span></div>
+  <div class="sc">60点<br>1,325円</div>
+  <div class="rt"><span class="neg">-1.6%</span>
+    <span class="pk">最高 -0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6932</b><span></span></div>
+  <div class="sc">60点<br>2,672円</div>
+  <div class="rt"><span class="flat">+0.3%</span>
+    <span class="pk">最高 +1.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>1921</b><span></span></div>
+  <div class="sc">60点<br>1,883円</div>
+  <div class="rt"><span class="neg">-0.7%</span>
+    <span class="pk">最高 +0.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6517</b><span></span></div>
+  <div class="sc">60点<br>4,335円</div>
+  <div class="rt"><span class="neg">-1.7%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3159</b><span></span></div>
+  <div class="sc">59点<br>374円</div>
+  <div class="rt"><span class="pos">+4.3%</span>
+    <span class="pk">最高 +5.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6080</b><span></span></div>
+  <div class="sc">59点<br>4,020円</div>
+  <div class="rt"><span class="neg">-0.9%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>1879</b><span></span></div>
+  <div class="sc">59点<br>2,185円</div>
+  <div class="rt"><span class="neg">-1.1%</span>
+    <span class="pk">最高 +1.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4674</b><span></span></div>
+  <div class="sc">56点<br>1,655円</div>
+  <div class="rt"><span class="neg">-0.6%</span>
+    <span class="pk">最高 +2.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2933</b><span></span></div>
+  <div class="sc">55点<br>1,103円</div>
+  <div class="rt"><span class="neg">-1.0%</span>
+    <span class="pk">最高 +0.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9507</b><span></span></div>
+  <div class="sc">55点<br>1,724円</div>
+  <div class="rt"><span class="flat">-0.4%</span>
+    <span class="pk">最高 +1.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5851</b><span></span></div>
+  <div class="sc">55点<br>2,625円</div>
+  <div class="rt"><span class="pos">+1.0%</span>
+    <span class="pk">最高 +1.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3569</b><span></span></div>
+  <div class="sc">55点<br>3,405円</div>
+  <div class="rt"><span class="neg">-1.3%</span>
+    <span class="pk">最高 +2.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8158</b><span></span></div>
+  <div class="sc">55点<br>1,218円</div>
+  <div class="rt"><span class="pos">+2.4%</span>
+    <span class="pk">最高 +2.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4228</b><span></span></div>
+  <div class="sc">54点<br>546円</div>
+  <div class="rt"><span class="pos">+7.7%</span>
+    <span class="pk">最高 +9.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8304</b><span></span></div>
+  <div class="sc">54点<br>3,213円</div>
+  <div class="rt"><span class="flat">+0.4%</span>
+    <span class="pk">最高 +1.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5482</b><span></span></div>
+  <div class="sc">51点<br>3,085円</div>
+  <div class="rt"><span class="flat">-0.3%</span>
+    <span class="pk">最高 +1.1%</span></div>
+</div><div class="hday">2026-07-31 (2営業日経過)</div><div class="hrow">
+  <div class="id"><b>9511</b><span></span></div>
+  <div class="sc">68点<br>1,054円</div>
+  <div class="rt"><span class="pos">+2.4%</span>
+    <span class="pk">最高 +5.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7575</b><span></span></div>
+  <div class="sc">67点<br>1,570円</div>
+  <div class="rt"><span class="neg">-1.5%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6625</b><span></span></div>
+  <div class="sc">67点<br>358円</div>
+  <div class="rt"><span class="neg">-3.4%</span>
+    <span class="pk">最高 -1.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4410</b><span></span></div>
+  <div class="sc">67点<br>1,120円</div>
+  <div class="rt"><span class="neg">-1.2%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6517</b><span></span></div>
+  <div class="sc">66点<br>4,015円</div>
+  <div class="rt"><span class="pos">+6.1%</span>
+    <span class="pk">最高 +10.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9621</b><span></span></div>
+  <div class="sc">65点<br>3,175円</div>
+  <div class="rt"><span class="neg">-1.9%</span>
+    <span class="pk">最高 +3.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6080</b><span></span></div>
+  <div class="sc">65点<br>3,885円</div>
+  <div class="rt"><span class="pos">+2.6%</span>
+    <span class="pk">最高 +4.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9507</b><span></span></div>
+  <div class="sc">65点<br>1,666円</div>
+  <div class="rt"><span class="pos">+3.1%</span>
+    <span class="pk">最高 +5.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6652</b><span></span></div>
+  <div class="sc">61点<br>3,535円</div>
+  <div class="rt"><span class="neg">-2.4%</span>
+    <span class="pk">最高 -1.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6454</b><span></span></div>
+  <div class="sc">61点<br>1,843円</div>
+  <div class="rt"><span class="pos">+3.7%</span>
+    <span class="pk">最高 +4.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3076</b><span></span></div>
+  <div class="sc">60点<br>2,950円</div>
+  <div class="rt"><span class="neg">-4.0%</span>
+    <span class="pk">最高 -1.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8158</b><span></span></div>
+  <div class="sc">60点<br>1,206円</div>
+  <div class="rt"><span class="pos">+3.4%</span>
+    <span class="pk">最高 +7.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6630</b><span></span></div>
+  <div class="sc">59点<br>770円</div>
+  <div class="rt"><span class="neg">-3.2%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9158</b><span></span></div>
+  <div class="sc">59点<br>790円</div>
+  <div class="rt"><span class="neg">-11.4%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4463</b><span></span></div>
+  <div class="sc">58点<br>2,006円</div>
+  <div class="rt"><span class="pos">+1.3%</span>
+    <span class="pk">最高 +2.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7976</b><span></span></div>
+  <div class="sc">58点<br>2,771円</div>
+  <div class="rt"><span class="neg">-1.6%</span>
+    <span class="pk">最高 +1.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4189</b><span></span></div>
+  <div class="sc">58点<br>3,305円</div>
+  <div class="rt"><span class="pos">+1.2%</span>
+    <span class="pk">最高 +5.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2410</b><span></span></div>
+  <div class="sc">57点<br>2,918円</div>
+  <div class="rt"><span class="neg">-3.9%</span>
+    <span class="pk">最高 -1.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9902</b><span></span></div>
+  <div class="sc">57点<br>3,085円</div>
+  <div class="rt"><span class="flat">-0.5%</span>
+    <span class="pk">最高 +2.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3131</b><span></span></div>
+  <div class="sc">53点<br>4,100円</div>
+  <div class="rt"><span class="pos">+9.8%</span>
+    <span class="pk">最高 +11.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9934</b><span></span></div>
+  <div class="sc">52点<br>2,862円</div>
+  <div class="rt"><span class="pos">+1.4%</span>
+    <span class="pk">最高 +3.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8084</b><span></span></div>
+  <div class="sc">51点<br>4,360円</div>
+  <div class="rt"><span class="pos">+2.3%</span>
+    <span class="pk">最高 +6.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6473</b><span></span></div>
+  <div class="sc">49点<br>2,216円</div>
+  <div class="rt"><span class="neg">-5.2%</span>
+    <span class="pk">最高 +0.9%</span></div>
+</div><div class="hday">2026-07-30 (3営業日経過)</div><div class="hrow">
+  <div class="id"><b>7971</b><span></span></div>
+  <div class="sc">70点<br>695円</div>
+  <div class="rt"><span class="neg">-4.5%</span>
+    <span class="pk">最高 -1.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6349</b><span></span></div>
+  <div class="sc">69点<br>1,932円</div>
+  <div class="rt"><span class="neg">-3.2%</span>
+    <span class="pk">最高 -1.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5845</b><span></span></div>
+  <div class="sc">68点<br>1,177円</div>
+  <div class="rt"><span class="flat">+0.2%</span>
+    <span class="pk">最高 +1.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9830</b><span></span></div>
+  <div class="sc">67点<br>2,430円</div>
+  <div class="rt"><span class="neg">-2.2%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4674</b><span></span></div>
+  <div class="sc">66点<br>1,647円</div>
+  <div class="rt"><span class="flat">-0.1%</span>
+    <span class="pk">最高 +2.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2317</b><span></span></div>
+  <div class="sc">66点<br>468円</div>
+  <div class="rt"><span class="neg">-11.3%</span>
+    <span class="pk">最高 -8.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9268</b><span></span></div>
+  <div class="sc">64点<br>422円</div>
+  <div class="rt"><span class="pos">+3.6%</span>
+    <span class="pk">最高 +4.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6196</b><span></span></div>
+  <div class="sc">64点<br>1,387円</div>
+  <div class="rt"><span class="neg">-4.1%</span>
+    <span class="pk">最高 -3.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>409A</b><span></span></div>
+  <div class="sc">63点<br>1,318円</div>
+  <div class="rt"><span class="neg">-6.1%</span>
+    <span class="pk">最高 -4.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6364</b><span></span></div>
+  <div class="sc">63点<br>2,373円</div>
+  <div class="rt"><span class="pos">+15.3%</span>
+    <span class="pk">最高 +17.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4013</b><span></span></div>
+  <div class="sc">63点<br>727円</div>
+  <div class="rt"><span class="neg">-2.9%</span>
+    <span class="pk">最高 +1.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8157</b><span></span></div>
+  <div class="sc">63点<br>4,265円</div>
+  <div class="rt"><span class="neg">-8.8%</span>
+    <span class="pk">最高 +0.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7433</b><span></span></div>
+  <div class="sc">63点<br>4,970円</div>
+  <div class="rt"><span class="pos">+3.6%</span>
+    <span class="pk">最高 +4.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>1379</b><span></span></div>
+  <div class="sc">62点<br>2,008円</div>
+  <div class="rt"><span class="neg">-6.6%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2752</b><span></span></div>
+  <div class="sc">61点<br>1,188円</div>
+  <div class="rt"><span class="neg">-8.7%</span>
+    <span class="pk">最高 -3.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7033</b><span></span></div>
+  <div class="sc">61点<br>1,458円</div>
+  <div class="rt"><span class="neg">-4.5%</span>
+    <span class="pk">最高 +0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7844</b><span></span></div>
+  <div class="sc">60点<br>470円</div>
+  <div class="rt"><span class="pos">+3.0%</span>
+    <span class="pk">最高 +5.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9991</b><span></span></div>
+  <div class="sc">60点<br>1,731円</div>
+  <div class="rt"><span class="neg">-1.8%</span>
+    <span class="pk">最高 +1.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2489</b><span></span></div>
+  <div class="sc">59点<br>320円</div>
+  <div class="rt"><span class="neg">-1.9%</span>
+    <span class="pk">最高 +0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3950</b><span></span></div>
+  <div class="sc">59点<br>1,477円</div>
+  <div class="rt"><span class="neg">-0.9%</span>
+    <span class="pk">最高 -0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7774</b><span></span></div>
+  <div class="sc">59点<br>660円</div>
+  <div class="rt"><span class="pos">+14.2%</span>
+    <span class="pk">最高 +14.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2359</b><span></span></div>
+  <div class="sc">58点<br>2,066円</div>
+  <div class="rt"><span class="neg">-2.7%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4498</b><span></span></div>
+  <div class="sc">58点<br>1,193円</div>
+  <div class="rt"><span class="pos">+2.4%</span>
+    <span class="pk">最高 +6.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3539</b><span></span></div>
+  <div class="sc">57点<br>1,445円</div>
+  <div class="rt"><span class="neg">-6.0%</span>
+    <span class="pk">最高 -0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4765</b><span></span></div>
+  <div class="sc">57点<br>631円</div>
+  <div class="rt"><span class="neg">-6.7%</span>
+    <span class="pk">最高 -0.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6420</b><span></span></div>
+  <div class="sc">56点<br>3,490円</div>
+  <div class="rt"><span class="neg">-0.9%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6727</b><span></span></div>
+  <div class="sc">56点<br>811円</div>
+  <div class="rt"><span class="neg">-2.7%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7388</b><span></span></div>
+  <div class="sc">55点<br>2,244円</div>
+  <div class="rt"><span class="neg">-5.0%</span>
+    <span class="pk">最高 -0.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7949</b><span></span></div>
+  <div class="sc">55点<br>2,820円</div>
+  <div class="rt"><span class="neg">-3.8%</span>
+    <span class="pk">最高 +0.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6788</b><span></span></div>
+  <div class="sc">53点<br>4,805円</div>
+  <div class="rt"><span class="neg">-2.0%</span>
+    <span class="pk">最高 +2.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3696</b><span></span></div>
+  <div class="sc">53点<br>2,173円</div>
+  <div class="rt"><span class="neg">-5.8%</span>
+    <span class="pk">最高 +3.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4634</b><span></span></div>
+  <div class="sc">52点<br>4,505円</div>
+  <div class="rt"><span class="neg">-0.7%</span>
+    <span class="pk">最高 +1.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9044</b><span></span></div>
+  <div class="sc">52点<br>3,226円</div>
+  <div class="rt"><span class="neg">-12.3%</span>
+    <span class="pk">最高 -3.9%</span></div>
+</div><div class="hday">2026-07-29 (4営業日経過)</div><div class="hrow">
+  <div class="id"><b>4290</b><span></span></div>
+  <div class="sc">74点<br>732円</div>
+  <div class="rt"><span class="neg">-6.4%</span>
+    <span class="pk">最高 +0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5845</b><span></span></div>
+  <div class="sc">72点<br>1,140円</div>
+  <div class="rt"><span class="pos">+3.4%</span>
+    <span class="pk">最高 +5.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2353</b><span></span></div>
+  <div class="sc">70点<br>268円</div>
+  <div class="rt"><span class="neg">-7.1%</span>
+    <span class="pk">最高 -4.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3771</b><span></span></div>
+  <div class="sc">69点<br>1,871円</div>
+  <div class="rt"><span class="neg">-5.9%</span>
+    <span class="pk">最高 +1.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8864</b><span></span></div>
+  <div class="sc">68点<br>1,038円</div>
+  <div class="rt"><span class="neg">-12.6%</span>
+    <span class="pk">最高 +0.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8596</b><span></span></div>
+  <div class="sc">68点<br>1,560円</div>
+  <div class="rt"><span class="neg">-2.2%</span>
+    <span class="pk">最高 +1.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2281</b><span></span></div>
+  <div class="sc">67点<br>2,555円</div>
+  <div class="rt"><span class="neg">-8.2%</span>
+    <span class="pk">最高 +1.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8214</b><span></span></div>
+  <div class="sc">67点<br>1,767円</div>
+  <div class="rt"><span class="neg">-3.3%</span>
+    <span class="pk">最高 +0.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6564</b><span></span></div>
+  <div class="sc">66点<br>2,297円</div>
+  <div class="rt"><span class="neg">-9.1%</span>
+    <span class="pk">最高 -0.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9932</b><span></span></div>
+  <div class="sc">66点<br>1,358円</div>
+  <div class="rt"><span class="neg">-7.1%</span>
+    <span class="pk">最高 -2.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9474</b><span></span></div>
+  <div class="sc">65点<br>956円</div>
+  <div class="rt"><span class="neg">-7.8%</span>
+    <span class="pk">最高 -3.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6040</b><span></span></div>
+  <div class="sc">65点<br>526円</div>
+  <div class="rt"><span class="neg">-14.4%</span>
+    <span class="pk">最高 -4.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7508</b><span></span></div>
+  <div class="sc">65点<br>1,494円</div>
+  <div class="rt"><span class="neg">-8.5%</span>
+    <span class="pk">最高 +0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8927</b><span></span></div>
+  <div class="sc">65点<br>463円</div>
+  <div class="rt"><span class="neg">-1.5%</span>
+    <span class="pk">最高 -0.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8218</b><span></span></div>
+  <div class="sc">65点<br>4,065円</div>
+  <div class="rt"><span class="neg">-7.5%</span>
+    <span class="pk">最高 +3.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4548</b><span></span></div>
+  <div class="sc">64点<br>759円</div>
+  <div class="rt"><span class="neg">-4.2%</span>
+    <span class="pk">最高 -0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6412</b><span></span></div>
+  <div class="sc">64点<br>2,175円</div>
+  <div class="rt"><span class="neg">-4.0%</span>
+    <span class="pk">最高 +0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6630</b><span></span></div>
+  <div class="sc">64点<br>769円</div>
+  <div class="rt"><span class="neg">-3.1%</span>
+    <span class="pk">最高 +0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4931</b><span></span></div>
+  <div class="sc">64点<br>2,100円</div>
+  <div class="rt"><span class="neg">-5.8%</span>
+    <span class="pk">最高 -0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>1379</b><span></span></div>
+  <div class="sc">63点<br>1,989円</div>
+  <div class="rt"><span class="neg">-5.7%</span>
+    <span class="pk">最高 +1.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9505</b><span></span></div>
+  <div class="sc">63点<br>991円</div>
+  <div class="rt"><span class="neg">-5.9%</span>
+    <span class="pk">最高 +2.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3284</b><span></span></div>
+  <div class="sc">63点<br>1,269円</div>
+  <div class="rt"><span class="neg">-4.3%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9991</b><span></span></div>
+  <div class="sc">63点<br>1,698円</div>
+  <div class="rt"><span class="flat">+0.1%</span>
+    <span class="pk">最高 +4.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7421</b><span></span></div>
+  <div class="sc">63点<br>1,651円</div>
+  <div class="rt"><span class="neg">-3.9%</span>
+    <span class="pk">最高 +0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9028</b><span></span></div>
+  <div class="sc">63点<br>3,625円</div>
+  <div class="rt"><span class="neg">-4.3%</span>
+    <span class="pk">最高 +0.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3539</b><span></span></div>
+  <div class="sc">62点<br>1,423円</div>
+  <div class="rt"><span class="neg">-4.5%</span>
+    <span class="pk">最高 +1.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7595</b><span></span></div>
+  <div class="sc">62点<br>1,392円</div>
+  <div class="rt"><span class="neg">-6.8%</span>
+    <span class="pk">最高 +0.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7313</b><span></span></div>
+  <div class="sc">62点<br>1,890円</div>
+  <div class="rt"><span class="neg">-5.9%</span>
+    <span class="pk">最高 -0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2217</b><span></span></div>
+  <div class="sc">62点<br>1,621円</div>
+  <div class="rt"><span class="neg">-8.4%</span>
+    <span class="pk">最高 -4.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2117</b><span></span></div>
+  <div class="sc">62点<br>2,867円</div>
+  <div class="rt"><span class="neg">-6.1%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5834</b><span></span></div>
+  <div class="sc">62点<br>2,915円</div>
+  <div class="rt"><span class="neg">-7.0%</span>
+    <span class="pk">最高 -0.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2653</b><span></span></div>
+  <div class="sc">62点<br>2,847円</div>
+  <div class="rt"><span class="neg">-0.8%</span>
+    <span class="pk">最高 +0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8091</b><span></span></div>
+  <div class="sc">62点<br>2,384円</div>
+  <div class="rt"><span class="neg">-1.0%</span>
+    <span class="pk">最高 +0.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3479</b><span></span></div>
+  <div class="sc">62点<br>1,940円</div>
+  <div class="rt"><span class="neg">-2.1%</span>
+    <span class="pk">最高 +2.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7296</b><span></span></div>
+  <div class="sc">62点<br>3,795円</div>
+  <div class="rt"><span class="flat">+0.1%</span>
+    <span class="pk">最高 +3.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9163</b><span></span></div>
+  <div class="sc">62点<br>2,355円</div>
+  <div class="rt"><span class="neg">-2.9%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9757</b><span></span></div>
+  <div class="sc">62点<br>1,165円</div>
+  <div class="rt"><span class="neg">-6.7%</span>
+    <span class="pk">最高 +0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7438</b><span></span></div>
+  <div class="sc">62点<br>1,607円</div>
+  <div class="rt"><span class="neg">-7.8%</span>
+    <span class="pk">最高 -0.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>1375</b><span></span></div>
+  <div class="sc">61点<br>1,204円</div>
+  <div class="rt"><span class="neg">-5.3%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7994</b><span></span></div>
+  <div class="sc">61点<br>2,364円</div>
+  <div class="rt"><span class="neg">-3.3%</span>
+    <span class="pk">最高 +0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8848</b><span></span></div>
+  <div class="sc">61点<br>696円</div>
+  <div class="rt"><span class="neg">-5.0%</span>
+    <span class="pk">最高 +0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7844</b><span></span></div>
+  <div class="sc">61点<br>465円</div>
+  <div class="rt"><span class="pos">+4.1%</span>
+    <span class="pk">最高 +6.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9782</b><span></span></div>
+  <div class="sc">61点<br>3,560円</div>
+  <div class="rt"><span class="neg">-4.8%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9684</b><span></span></div>
+  <div class="sc">61点<br>2,924円</div>
+  <div class="rt"><span class="neg">-7.8%</span>
+    <span class="pk">最高 +1.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4923</b><span></span></div>
+  <div class="sc">61点<br>1,258円</div>
+  <div class="rt"><span class="neg">-6.6%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2211</b><span></span></div>
+  <div class="sc">61点<br>2,515円</div>
+  <div class="rt"><span class="neg">-5.9%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9052</b><span></span></div>
+  <div class="sc">61点<br>2,075円</div>
+  <div class="rt"><span class="neg">-6.4%</span>
+    <span class="pk">最高 -0.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7433</b><span></span></div>
+  <div class="sc">61点<br>4,765円</div>
+  <div class="rt"><span class="pos">+8.1%</span>
+    <span class="pk">最高 +8.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9658</b><span></span></div>
+  <div class="sc">61点<br>1,085円</div>
+  <div class="rt"><span class="neg">-7.6%</span>
+    <span class="pk">最高 -0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4933</b><span></span></div>
+  <div class="sc">61点<br>1,280円</div>
+  <div class="rt"><span class="neg">-4.1%</span>
+    <span class="pk">最高 +0.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7033</b><span></span></div>
+  <div class="sc">61点<br>1,449円</div>
+  <div class="rt"><span class="neg">-3.9%</span>
+    <span class="pk">最高 +1.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7261</b><span></span></div>
+  <div class="sc">60点<br>1,218円</div>
+  <div class="rt"><span class="neg">-8.9%</span>
+    <span class="pk">最高 +0.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7552</b><span></span></div>
+  <div class="sc">60点<br>3,380円</div>
+  <div class="rt"><span class="neg">-1.8%</span>
+    <span class="pk">最高 +1.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7990</b><span></span></div>
+  <div class="sc">60点<br>2,552円</div>
+  <div class="rt"><span class="pos">+2.8%</span>
+    <span class="pk">最高 +4.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2109</b><span></span></div>
+  <div class="sc">60点<br>3,585円</div>
+  <div class="rt"><span class="neg">-5.4%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9692</b><span></span></div>
+  <div class="sc">60点<br>2,346円</div>
+  <div class="rt"><span class="neg">-5.4%</span>
+    <span class="pk">最高 -1.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4951</b><span></span></div>
+  <div class="sc">60点<br>1,569円</div>
+  <div class="rt"><span class="neg">-5.0%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3844</b><span></span></div>
+  <div class="sc">60点<br>1,455円</div>
+  <div class="rt"><span class="neg">-2.8%</span>
+    <span class="pk">最高 +0.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7272</b><span></span></div>
+  <div class="sc">60点<br>1,409円</div>
+  <div class="rt"><span class="pos">+7.2%</span>
+    <span class="pk">最高 +10.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>1414</b><span></span></div>
+  <div class="sc">60点<br>1,353円</div>
+  <div class="rt"><span class="neg">-4.9%</span>
+    <span class="pk">最高 +0.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4544</b><span></span></div>
+  <div class="sc">59点<br>3,595円</div>
+  <div class="rt"><span class="neg">-6.9%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9928</b><span></span></div>
+  <div class="sc">59点<br>1,878円</div>
+  <div class="rt"><span class="neg">-4.2%</span>
+    <span class="pk">最高 +0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3762</b><span></span></div>
+  <div class="sc">59点<br>2,117円</div>
+  <div class="rt"><span class="pos">+9.4%</span>
+    <span class="pk">最高 +12.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7305</b><span></span></div>
+  <div class="sc">59点<br>2,700円</div>
+  <div class="rt"><span class="neg">-3.0%</span>
+    <span class="pk">最高 +0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4521</b><span></span></div>
+  <div class="sc">59点<br>3,990円</div>
+  <div class="rt"><span class="neg">-5.3%</span>
+    <span class="pk">最高 -0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4301</b><span></span></div>
+  <div class="sc">59点<br>2,028円</div>
+  <div class="rt"><span class="neg">-7.3%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2763</b><span></span></div>
+  <div class="sc">59点<br>1,199円</div>
+  <div class="rt"><span class="flat">+0.0%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3679</b><span></span></div>
+  <div class="sc">59点<br>428円</div>
+  <div class="rt"><span class="neg">-3.0%</span>
+    <span class="pk">最高 +0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9332</b><span></span></div>
+  <div class="sc">59点<br>644円</div>
+  <div class="rt"><span class="neg">-5.3%</span>
+    <span class="pk">最高 -0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9990</b><span></span></div>
+  <div class="sc">59点<br>788円</div>
+  <div class="rt"><span class="neg">-3.6%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5947</b><span></span></div>
+  <div class="sc">58点<br>3,781円</div>
+  <div class="rt"><span class="neg">-7.8%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7554</b><span></span></div>
+  <div class="sc">58点<br>1,175円</div>
+  <div class="rt"><span class="neg">-5.9%</span>
+    <span class="pk">最高 -0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4345</b><span></span></div>
+  <div class="sc">58点<br>907円</div>
+  <div class="rt"><span class="neg">-7.3%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2908</b><span></span></div>
+  <div class="sc">58点<br>1,610円</div>
+  <div class="rt"><span class="neg">-4.7%</span>
+    <span class="pk">最高 +1.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4765</b><span></span></div>
+  <div class="sc">58点<br>608円</div>
+  <div class="rt"><span class="neg">-3.1%</span>
+    <span class="pk">最高 +4.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9682</b><span></span></div>
+  <div class="sc">58点<br>1,167円</div>
+  <div class="rt"><span class="neg">-10.5%</span>
+    <span class="pk">最高 +2.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3930</b><span></span></div>
+  <div class="sc">58点<br>1,140円</div>
+  <div class="rt"><span class="neg">-32.9%</span>
+    <span class="pk">最高 -26.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6419</b><span></span></div>
+  <div class="sc">58点<br>3,230円</div>
+  <div class="rt"><span class="neg">-5.1%</span>
+    <span class="pk">最高 +0.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8593</b><span></span></div>
+  <div class="sc">58点<br>1,518円</div>
+  <div class="rt"><span class="neg">-7.1%</span>
+    <span class="pk">最高 -0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7270</b><span></span></div>
+  <div class="sc">57点<br>2,848円</div>
+  <div class="rt"><span class="neg">-9.3%</span>
+    <span class="pk">最高 +1.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6539</b><span></span></div>
+  <div class="sc">57点<br>1,010円</div>
+  <div class="rt"><span class="neg">-3.8%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7616</b><span></span></div>
+  <div class="sc">57点<br>2,144円</div>
+  <div class="rt"><span class="neg">-7.1%</span>
+    <span class="pk">最高 +1.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2209</b><span></span></div>
+  <div class="sc">57点<br>2,465円</div>
+  <div class="rt"><span class="neg">-6.1%</span>
+    <span class="pk">最高 -0.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7630</b><span></span></div>
+  <div class="sc">57点<br>968円</div>
+  <div class="rt"><span class="neg">-6.0%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8160</b><span></span></div>
+  <div class="sc">56点<br>2,548円</div>
+  <div class="rt"><span class="neg">-5.8%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5988</b><span></span></div>
+  <div class="sc">56点<br>1,757円</div>
+  <div class="rt"><span class="neg">-3.4%</span>
+    <span class="pk">最高 +0.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2910</b><span></span></div>
+  <div class="sc">56点<br>1,410円</div>
+  <div class="rt"><span class="neg">-4.5%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8179</b><span></span></div>
+  <div class="sc">56点<br>1,373円</div>
+  <div class="rt"><span class="neg">-4.6%</span>
+    <span class="pk">最高 +0.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3371</b><span></span></div>
+  <div class="sc">56点<br>2,118円</div>
+  <div class="rt"><span class="neg">-13.7%</span>
+    <span class="pk">最高 +0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8276</b><span></span></div>
+  <div class="sc">56点<br>2,752円</div>
+  <div class="rt"><span class="neg">-4.9%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3851</b><span></span></div>
+  <div class="sc">56点<br>1,062円</div>
+  <div class="rt"><span class="neg">-1.3%</span>
+    <span class="pk">最高 +4.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9936</b><span></span></div>
+  <div class="sc">56点<br>3,115円</div>
+  <div class="rt"><span class="neg">-8.0%</span>
+    <span class="pk">最高 +0.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4540</b><span></span></div>
+  <div class="sc">55点<br>4,045円</div>
+  <div class="rt"><span class="neg">-6.9%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7951</b><span></span></div>
+  <div class="sc">55点<br>1,288円</div>
+  <div class="rt"><span class="neg">-3.4%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9031</b><span></span></div>
+  <div class="sc">55点<br>3,245円</div>
+  <div class="rt"><span class="neg">-8.5%</span>
+    <span class="pk">最高 +0.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9041</b><span></span></div>
+  <div class="sc">55点<br>3,648円</div>
+  <div class="rt"><span class="neg">-6.3%</span>
+    <span class="pk">最高 -0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>1878</b><span></span></div>
+  <div class="sc">55点<br>3,601円</div>
+  <div class="rt"><span class="neg">-10.6%</span>
+    <span class="pk">最高 -0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3880</b><span></span></div>
+  <div class="sc">55点<br>1,018円</div>
+  <div class="rt"><span class="neg">-4.3%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2593</b><span></span></div>
+  <div class="sc">55点<br>3,236円</div>
+  <div class="rt"><span class="neg">-11.1%</span>
+    <span class="pk">最高 +1.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6418</b><span></span></div>
+  <div class="sc">54点<br>1,107円</div>
+  <div class="rt"><span class="pos">+3.1%</span>
+    <span class="pk">最高 +4.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9202</b><span></span></div>
+  <div class="sc">54点<br>3,221円</div>
+  <div class="rt"><span class="neg">-3.8%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3232</b><span></span></div>
+  <div class="sc">54点<br>571円</div>
+  <div class="rt"><span class="neg">-6.3%</span>
+    <span class="pk">最高 -0.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2698</b><span></span></div>
+  <div class="sc">54点<br>3,655円</div>
+  <div class="rt"><span class="neg">-1.8%</span>
+    <span class="pk">最高 +0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2003</b><span></span></div>
+  <div class="sc">54点<br>1,900円</div>
+  <div class="rt"><span class="neg">-10.3%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2305</b><span></span></div>
+  <div class="sc">54点<br>2,025円</div>
+  <div class="rt"><span class="neg">-5.1%</span>
+    <span class="pk">最高 -0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9048</b><span></span></div>
+  <div class="sc">54点<br>1,994円</div>
+  <div class="rt"><span class="neg">-8.0%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9045</b><span></span></div>
+  <div class="sc">54点<br>3,434円</div>
+  <div class="rt"><span class="neg">-8.8%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9006</b><span></span></div>
+  <div class="sc">54点<br>1,652円</div>
+  <div class="rt"><span class="neg">-8.4%</span>
+    <span class="pk">最高 +0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2801</b><span></span></div>
+  <div class="sc">54点<br>1,748円</div>
+  <div class="rt"><span class="neg">-9.8%</span>
+    <span class="pk">最高 +1.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3191</b><span></span></div>
+  <div class="sc">54点<br>2,524円</div>
+  <div class="rt"><span class="neg">-12.2%</span>
+    <span class="pk">最高 +0.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3028</b><span></span></div>
+  <div class="sc">53点<br>2,307円</div>
+  <div class="rt"><span class="neg">-5.7%</span>
+    <span class="pk">最高 -0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8153</b><span></span></div>
+  <div class="sc">53点<br>4,055円</div>
+  <div class="rt"><span class="neg">-7.6%</span>
+    <span class="pk">最高 +0.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3197</b><span></span></div>
+  <div class="sc">53点<br>3,333円</div>
+  <div class="rt"><span class="neg">-7.4%</span>
+    <span class="pk">最高 +0.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7242</b><span></span></div>
+  <div class="sc">53点<br>4,555円</div>
+  <div class="rt"><span class="neg">-3.6%</span>
+    <span class="pk">最高 +0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5411</b><span></span></div>
+  <div class="sc">53点<br>1,868円</div>
+  <div class="rt"><span class="neg">-3.6%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7949</b><span></span></div>
+  <div class="sc">52点<br>2,789円</div>
+  <div class="rt"><span class="neg">-2.8%</span>
+    <span class="pk">最高 +1.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9008</b><span></span></div>
+  <div class="sc">52点<br>841円</div>
+  <div class="rt"><span class="neg">-8.6%</span>
+    <span class="pk">最高 +0.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2229</b><span></span></div>
+  <div class="sc">52点<br>3,195円</div>
+  <div class="rt"><span class="neg">-10.6%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7821</b><span></span></div>
+  <div class="sc">52点<br>1,966円</div>
+  <div class="rt"><span class="flat">+0.1%</span>
+    <span class="pk">最高 +2.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2742</b><span></span></div>
+  <div class="sc">52点<br>4,020円</div>
+  <div class="rt"><span class="neg">-7.2%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3333</b><span></span></div>
+  <div class="sc">52点<br>1,378円</div>
+  <div class="rt"><span class="neg">-4.6%</span>
+    <span class="pk">最高 +1.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5011</b><span></span></div>
+  <div class="sc">51点<br>2,280円</div>
+  <div class="rt"><span class="neg">-4.6%</span>
+    <span class="pk">最高 +0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9142</b><span></span></div>
+  <div class="sc">51点<br>3,811円</div>
+  <div class="rt"><span class="neg">-10.4%</span>
+    <span class="pk">最高 +0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9081</b><span></span></div>
+  <div class="sc">50点<br>4,070円</div>
+  <div class="rt"><span class="neg">-7.7%</span>
+    <span class="pk">最高 -1.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3003</b><span></span></div>
+  <div class="sc">50点<br>1,907円</div>
+  <div class="rt"><span class="neg">-10.1%</span>
+    <span class="pk">最高 +0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3116</b><span></span></div>
+  <div class="sc">50点<br>2,406円</div>
+  <div class="rt"><span class="neg">-10.3%</span>
+    <span class="pk">最高 +1.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3543</b><span></span></div>
+  <div class="sc">49点<br>2,978円</div>
+  <div class="rt"><span class="neg">-4.9%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4205</b><span></span></div>
+  <div class="sc">49点<br>2,254円</div>
+  <div class="rt"><span class="pos">+1.0%</span>
+    <span class="pk">最高 +6.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3626</b><span></span></div>
+  <div class="sc">48点<br>3,939円</div>
+  <div class="rt"><span class="neg">-7.2%</span>
+    <span class="pk">最高 +2.8%</span></div>
+</div><div class="hday">2026-07-28 (5営業日経過)</div><div class="hrow">
+  <div class="id"><b>3054</b><span></span></div>
+  <div class="sc">64点<br>276円</div>
+  <div class="rt"><span class="neg">-13.0%</span>
+    <span class="pk">最高 -2.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3771</b><span></span></div>
+  <div class="sc">64点<br>1,847円</div>
+  <div class="rt"><span class="neg">-4.7%</span>
+    <span class="pk">最高 +2.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7949</b><span></span></div>
+  <div class="sc">63点<br>2,753円</div>
+  <div class="rt"><span class="neg">-1.5%</span>
+    <span class="pk">最高 +3.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8084</b><span></span></div>
+  <div class="sc">57点<br>4,080円</div>
+  <div class="rt"><span class="pos">+9.3%</span>
+    <span class="pk">最高 +13.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4765</b><span></span></div>
+  <div class="sc">56点<br>588円</div>
+  <div class="rt"><span class="flat">+0.2%</span>
+    <span class="pk">最高 +7.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9081</b><span></span></div>
+  <div class="sc">53点<br>3,990円</div>
+  <div class="rt"><span class="neg">-5.9%</span>
+    <span class="pk">最高 +2.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5958</b><span></span></div>
+  <div class="sc">53点<br>4,785円</div>
+  <div class="rt"><span class="neg">-2.9%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9045</b><span></span></div>
+  <div class="sc">52点<br>3,359円</div>
+  <div class="rt"><span class="neg">-6.8%</span>
+    <span class="pk">最高 +2.3%</span></div>
+</div><div class="hday">2026-07-27 (6営業日経過)</div><div class="hrow">
+  <div class="id"><b>4998</b><span></span></div>
+  <div class="sc">61点<br>1,229円</div>
+  <div class="rt"><span class="neg">-3.1%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8383</b><span></span></div>
+  <div class="sc">61点<br>1,767円</div>
+  <div class="rt"><span class="pos">+1.6%</span>
+    <span class="pk">最高 +5.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3561</b><span></span></div>
+  <div class="sc">61点<br>1,667円</div>
+  <div class="rt"><span class="neg">-5.3%</span>
+    <span class="pk">最高 +4.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6436</b><span></span></div>
+  <div class="sc">60点<br>4,039円</div>
+  <div class="rt"><span class="neg">-4.0%</span>
+    <span class="pk">最高 +0.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3159</b><span></span></div>
+  <div class="sc">60点<br>367円</div>
+  <div class="rt"><span class="pos">+6.3%</span>
+    <span class="pk">最高 +7.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7949</b><span></span></div>
+  <div class="sc">60点<br>2,699円</div>
+  <div class="rt"><span class="flat">+0.5%</span>
+    <span class="pk">最高 +5.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9507</b><span></span></div>
+  <div class="sc">60点<br>1,613円</div>
+  <div class="rt"><span class="pos">+6.4%</span>
+    <span class="pk">最高 +9.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3031</b><span></span></div>
+  <div class="sc">60点<br>641円</div>
+  <div class="rt"><span class="neg">-2.0%</span>
+    <span class="pk">最高 +2.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7981</b><span></span></div>
+  <div class="sc">60点<br>3,240円</div>
+  <div class="rt"><span class="neg">-7.7%</span>
+    <span class="pk">最高 +2.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9743</b><span></span></div>
+  <div class="sc">58点<br>1,438円</div>
+  <div class="rt"><span class="neg">-1.7%</span>
+    <span class="pk">最高 +1.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5911</b><span></span></div>
+  <div class="sc">58点<br>3,005円</div>
+  <div class="rt"><span class="neg">-3.0%</span>
+    <span class="pk">最高 +0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7780</b><span></span></div>
+  <div class="sc">58点<br>1,765円</div>
+  <div class="rt"><span class="neg">-2.0%</span>
+    <span class="pk">最高 +2.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7942</b><span></span></div>
+  <div class="sc">58点<br>2,543円</div>
+  <div class="rt"><span class="pos">+9.9%</span>
+    <span class="pk">最高 +13.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3360</b><span></span></div>
+  <div class="sc">57点<br>2,502円</div>
+  <div class="rt"><span class="neg">-3.6%</span>
+    <span class="pk">最高 +3.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4540</b><span></span></div>
+  <div class="sc">57点<br>3,941円</div>
+  <div class="rt"><span class="neg">-4.4%</span>
+    <span class="pk">最高 +3.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2763</b><span></span></div>
+  <div class="sc">57点<br>1,155円</div>
+  <div class="rt"><span class="pos">+3.8%</span>
+    <span class="pk">最高 +5.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6412</b><span></span></div>
+  <div class="sc">55点<br>2,099円</div>
+  <div class="rt"><span class="neg">-0.5%</span>
+    <span class="pk">最高 +4.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4956</b><span></span></div>
+  <div class="sc">55点<br>1,481円</div>
+  <div class="rt"><span class="neg">-4.6%</span>
+    <span class="pk">最高 -0.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8714</b><span></span></div>
+  <div class="sc">54点<br>1,086円</div>
+  <div class="rt"><span class="neg">-10.3%</span>
+    <span class="pk">最高 +0.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>1976</b><span></span></div>
+  <div class="sc">53点<br>1,994円</div>
+  <div class="rt"><span class="neg">-7.2%</span>
+    <span class="pk">最高 +5.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9081</b><span></span></div>
+  <div class="sc">52点<br>3,950円</div>
+  <div class="rt"><span class="neg">-4.9%</span>
+    <span class="pk">最高 +3.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6592</b><span></span></div>
+  <div class="sc">52点<br>1,706円</div>
+  <div class="rt"><span class="neg">-3.5%</span>
+    <span class="pk">最高 +0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6588</b><span></span></div>
+  <div class="sc">50点<br>3,225円</div>
+  <div class="rt"><span class="neg">-4.2%</span>
+    <span class="pk">最高 -0.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4046</b><span></span></div>
+  <div class="sc">50点<br>1,867円</div>
+  <div class="rt"><span class="neg">-3.5%</span>
+    <span class="pk">最高 -1.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6486</b><span></span></div>
+  <div class="sc">50点<br>3,045円</div>
+  <div class="rt"><span class="neg">-5.0%</span>
+    <span class="pk">最高 +0.2%</span></div>
+</div><div class="hday">2026-07-24 (7営業日経過)</div><div class="hrow">
+  <div class="id"><b>3159</b><span></span></div>
+  <div class="sc">61点<br>366円</div>
+  <div class="rt"><span class="pos">+6.6%</span>
+    <span class="pk">最高 +7.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2804</b><span></span></div>
+  <div class="sc">61点<br>1,831円</div>
+  <div class="rt"><span class="neg">-3.6%</span>
+    <span class="pk">最高 +2.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8919</b><span></span></div>
+  <div class="sc">54点<br>3,310円</div>
+  <div class="rt"><span class="neg">-3.5%</span>
+    <span class="pk">最高 +5.6%</span></div>
+</div><div class="hday">2026-07-23 (8営業日経過)</div><div class="hrow">
+  <div class="id"><b>7931</b><span></span></div>
+  <div class="sc">70点<br>3,505円</div>
+  <div class="rt"><span class="neg">-4.3%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4847</b><span></span></div>
+  <div class="sc">68点<br>1,013円</div>
+  <div class="rt"><span class="neg">-1.0%</span>
+    <span class="pk">最高 +0.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9341</b><span></span></div>
+  <div class="sc">61点<br>627円</div>
+  <div class="rt"><span class="neg">-0.8%</span>
+    <span class="pk">最高 +2.6%</span></div>
+</div><div class="hday">2026-07-22 (9営業日経過)</div><div class="hrow">
+  <div class="id"><b>4998</b><span></span></div>
+  <div class="sc">60点<br>1,205円</div>
+  <div class="rt"><span class="neg">-1.2%</span>
+    <span class="pk">最高 +2.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>296A</b><span></span></div>
+  <div class="sc">59点<br>930円</div>
+  <div class="rt"><span class="neg">-6.5%</span>
+    <span class="pk">最高 +1.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8596</b><span></span></div>
+  <div class="sc">58点<br>1,502円</div>
+  <div class="rt"><span class="pos">+1.6%</span>
+    <span class="pk">最高 +5.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7752</b><span></span></div>
+  <div class="sc">55点<br>1,552円</div>
+  <div class="rt"><span class="neg">-2.3%</span>
+    <span class="pk">最高 +7.3%</span></div>
+</div><div class="hday">2026-07-21 (10営業日経過)</div><div class="hrow">
+  <div class="id"><b>296A</b><span></span></div>
+  <div class="sc">70点<br>901円</div>
+  <div class="rt"><span class="neg">-3.4%</span>
+    <span class="pk">最高 +10.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6364</b><span></span></div>
+  <div class="sc">68点<br>1,997円</div>
+  <div class="rt"><span class="pos">+37.0%</span>
+    <span class="pk">最高 +39.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3179</b><span></span></div>
+  <div class="sc">68点<br>1,234円</div>
+  <div class="rt"><span class="pos">+10.6%</span>
+    <span class="pk">最高 +14.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7161</b><span></span></div>
+  <div class="sc">64点<br>523円</div>
+  <div class="rt"><span class="neg">-2.7%</span>
+    <span class="pk">最高 +4.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4249</b><span></span></div>
+  <div class="sc">64点<br>2,533円</div>
+  <div class="rt"><span class="neg">-1.8%</span>
+    <span class="pk">最高 +0.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6535</b><span></span></div>
+  <div class="sc">61点<br>546円</div>
+  <div class="rt"><span class="neg">-11.5%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2429</b><span></span></div>
+  <div class="sc">61点<br>2,716円</div>
+  <div class="rt"><span class="neg">-4.2%</span>
+    <span class="pk">最高 +2.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4977</b><span></span></div>
+  <div class="sc">58点<br>1,313円</div>
+  <div class="rt"><span class="neg">-0.8%</span>
+    <span class="pk">最高 +2.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8596</b><span></span></div>
+  <div class="sc">58点<br>1,479円</div>
+  <div class="rt"><span class="pos">+3.2%</span>
+    <span class="pk">最高 +7.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8410</b><span></span></div>
+  <div class="sc">55点<br>311円</div>
+  <div class="rt"><span class="pos">+1.5%</span>
+    <span class="pk">最高 +7.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9324</b><span></span></div>
+  <div class="sc">55点<br>2,632円</div>
+  <div class="rt"><span class="neg">-7.5%</span>
+    <span class="pk">最高 -0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7927</b><span></span></div>
+  <div class="sc">53点<br>2,334円</div>
+  <div class="rt"><span class="neg">-3.6%</span>
+    <span class="pk">最高 +1.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5834</b><span></span></div>
+  <div class="sc">53点<br>2,770円</div>
+  <div class="rt"><span class="neg">-2.1%</span>
+    <span class="pk">最高 +7.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5491</b><span></span></div>
+  <div class="sc">53点<br>900円</div>
+  <div class="rt"><span class="pos">+2.4%</span>
+    <span class="pk">最高 +3.3%</span></div>
+</div><div class="hday">2026-07-17 (12営業日経過)</div><div class="hrow">
+  <div class="id"><b>9991</b><span></span></div>
+  <div class="sc">59点<br>1,615円</div>
+  <div class="rt"><span class="pos">+5.3%</span>
+    <span class="pk">最高 +10.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4651</b><span></span></div>
+  <div class="sc">56点<br>253円</div>
+  <div class="rt"><span class="pos">+4.3%</span>
+    <span class="pk">最高 +5.9%</span></div>
+</div><div class="hday">2026-07-16 (13営業日経過)</div><div class="hrow">
+  <div class="id"><b>6033</b><span></span></div>
+  <div class="sc">67点<br>1,648円</div>
+  <div class="rt"><span class="pos">+1.2%</span>
+    <span class="pk">最高 +6.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9252</b><span></span></div>
+  <div class="sc">60点<br>3,790円</div>
+  <div class="rt"><span class="neg">-1.6%</span>
+    <span class="pk">最高 +4.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2384</b><span></span></div>
+  <div class="sc">53点<br>4,535円</div>
+  <div class="rt"><span class="neg">-6.2%</span>
+    <span class="pk">最高 +4.4%</span></div>
+</div><div class="hday">2026-07-15 (14営業日経過)</div><div class="hrow">
+  <div class="id"><b>7414</b><span></span></div>
+  <div class="sc">66点<br>1,422円</div>
+  <div class="rt"><span class="neg">-1.2%</span>
+    <span class="pk">最高 +3.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4668</b><span></span></div>
+  <div class="sc">65点<br>770円</div>
+  <div class="rt"><span class="neg">-1.3%</span>
+    <span class="pk">最高 +4.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>365A</b><span></span></div>
+  <div class="sc">65点<br>773円</div>
+  <div class="rt"><span class="flat">+0.3%</span>
+    <span class="pk">最高 +4.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9324</b><span></span></div>
+  <div class="sc">64点<br>2,576円</div>
+  <div class="rt"><span class="neg">-5.5%</span>
+    <span class="pk">最高 +3.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8706</b><span></span></div>
+  <div class="sc">64点<br>1,759円</div>
+  <div class="rt"><span class="pos">+0.9%</span>
+    <span class="pk">最高 +3.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8614</b><span></span></div>
+  <div class="sc">62点<br>682円</div>
+  <div class="rt"><span class="neg">-4.0%</span>
+    <span class="pk">最高 +0.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4477</b><span></span></div>
+  <div class="sc">62点<br>320円</div>
+  <div class="rt"><span class="neg">-5.0%</span>
+    <span class="pk">最高 +1.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6083</b><span></span></div>
+  <div class="sc">61点<br>1,500円</div>
+  <div class="rt"><span class="pos">+4.9%</span>
+    <span class="pk">最高 +9.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2153</b><span></span></div>
+  <div class="sc">61点<br>1,793円</div>
+  <div class="rt"><span class="neg">-3.7%</span>
+    <span class="pk">最高 +2.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3479</b><span></span></div>
+  <div class="sc">61点<br>1,820円</div>
+  <div class="rt"><span class="pos">+4.4%</span>
+    <span class="pk">最高 +8.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6099</b><span></span></div>
+  <div class="sc">60点<br>787円</div>
+  <div class="rt"><span class="neg">-5.3%</span>
+    <span class="pk">最高 +2.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5011</b><span></span></div>
+  <div class="sc">59点<br>2,168円</div>
+  <div class="rt"><span class="flat">+0.4%</span>
+    <span class="pk">最高 +5.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3580</b><span></span></div>
+  <div class="sc">59点<br>735円</div>
+  <div class="rt"><span class="neg">-0.7%</span>
+    <span class="pk">最高 +1.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8511</b><span></span></div>
+  <div class="sc">56点<br>2,435円</div>
+  <div class="rt"><span class="neg">-3.7%</span>
+    <span class="pk">最高 +2.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4434</b><span></span></div>
+  <div class="sc">56点<br>2,066円</div>
+  <div class="rt"><span class="pos">+14.6%</span>
+    <span class="pk">最高 +17.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8708</b><span></span></div>
+  <div class="sc">55点<br>1,629円</div>
+  <div class="rt"><span class="pos">+3.1%</span>
+    <span class="pk">最高 +7.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3864</b><span></span></div>
+  <div class="sc">54点<br>1,108円</div>
+  <div class="rt"><span class="pos">+4.0%</span>
+    <span class="pk">最高 +10.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8616</b><span></span></div>
+  <div class="sc">53点<br>805円</div>
+  <div class="rt"><span class="flat">+0.1%</span>
+    <span class="pk">最高 +3.4%</span></div>
+</div><div class="hday">2026-07-14 (15営業日経過)</div><div class="hrow">
+  <div class="id"><b>3399</b><span></span></div>
+  <div class="sc">66点<br>3,795円</div>
+  <div class="rt"><span class="neg">-5.8%</span>
+    <span class="pk">最高 +2.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>365A</b><span></span></div>
+  <div class="sc">64点<br>766円</div>
+  <div class="rt"><span class="pos">+1.2%</span>
+    <span class="pk">最高 +5.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7085</b><span></span></div>
+  <div class="sc">63点<br>986円</div>
+  <div class="rt"><span class="neg">-6.3%</span>
+    <span class="pk">最高 +1.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3148</b><span></span></div>
+  <div class="sc">63点<br>3,390円</div>
+  <div class="rt"><span class="neg">-3.8%</span>
+    <span class="pk">最高 +4.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4434</b><span></span></div>
+  <div class="sc">61点<br>2,058円</div>
+  <div class="rt"><span class="pos">+15.1%</span>
+    <span class="pk">最高 +18.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8729</b><span></span></div>
+  <div class="sc">60点<br>155円</div>
+  <div class="rt"><span class="neg">-1.2%</span>
+    <span class="pk">最高 +4.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9837</b><span></span></div>
+  <div class="sc">59点<br>1,850円</div>
+  <div class="rt"><span class="neg">-3.4%</span>
+    <span class="pk">最高 -0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2471</b><span></span></div>
+  <div class="sc">58点<br>274円</div>
+  <div class="rt"><span class="neg">-2.9%</span>
+    <span class="pk">最高 +1.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4343</b><span></span></div>
+  <div class="sc">58点<br>2,760円</div>
+  <div class="rt"><span class="neg">-3.6%</span>
+    <span class="pk">最高 +3.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8410</b><span></span></div>
+  <div class="sc">56点<br>302円</div>
+  <div class="rt"><span class="pos">+4.6%</span>
+    <span class="pk">最高 +10.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5885</b><span></span></div>
+  <div class="sc">56点<br>3,185円</div>
+  <div class="rt"><span class="neg">-13.2%</span>
+    <span class="pk">最高 -8.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2212</b><span></span></div>
+  <div class="sc">51点<br>3,337円</div>
+  <div class="rt"><span class="neg">-2.3%</span>
+    <span class="pk">最高 +11.5%</span></div>
+</div><div class="hday">2026-07-13 (16営業日経過)</div><div class="hrow">
+  <div class="id"><b>9997</b><span></span></div>
+  <div class="sc">66点<br>1,058円</div>
+  <div class="rt"><span class="neg">-7.1%</span>
+    <span class="pk">最高 +4.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8927</b><span></span></div>
+  <div class="sc">64点<br>469円</div>
+  <div class="rt"><span class="neg">-2.8%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8244</b><span></span></div>
+  <div class="sc">64点<br>1,898円</div>
+  <div class="rt"><span class="neg">-5.4%</span>
+    <span class="pk">最高 +2.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2157</b><span></span></div>
+  <div class="sc">63点<br>1,035円</div>
+  <div class="rt"><span class="neg">-2.4%</span>
+    <span class="pk">最高 +6.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4343</b><span></span></div>
+  <div class="sc">61点<br>2,697円</div>
+  <div class="rt"><span class="neg">-1.4%</span>
+    <span class="pk">最高 +5.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3388</b><span></span></div>
+  <div class="sc">60点<br>2,205円</div>
+  <div class="rt"><span class="neg">-5.8%</span>
+    <span class="pk">最高 +3.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6194</b><span></span></div>
+  <div class="sc">59点<br>816円</div>
+  <div class="rt"><span class="pos">+4.2%</span>
+    <span class="pk">最高 +7.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3835</b><span></span></div>
+  <div class="sc">57点<br>430円</div>
+  <div class="rt"><span class="neg">-2.1%</span>
+    <span class="pk">最高 +1.2%</span></div>
+</div><div class="hday">2026-07-10 (17営業日経過)</div><div class="hrow">
+  <div class="id"><b>6194</b><span></span></div>
+  <div class="sc">72点<br>805円</div>
+  <div class="rt"><span class="pos">+5.6%</span>
+    <span class="pk">最高 +8.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4763</b><span></span></div>
+  <div class="sc">68点<br>1,448円</div>
+  <div class="rt"><span class="neg">-2.6%</span>
+    <span class="pk">最高 +5.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9997</b><span></span></div>
+  <div class="sc">65点<br>1,023円</div>
+  <div class="rt"><span class="neg">-3.9%</span>
+    <span class="pk">最高 +8.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8628</b><span></span></div>
+  <div class="sc">63点<br>1,035円</div>
+  <div class="rt"><span class="flat">-0.1%</span>
+    <span class="pk">最高 +9.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2120</b><span></span></div>
+  <div class="sc">63点<br>204円</div>
+  <div class="rt"><span class="flat">+0.0%</span>
+    <span class="pk">最高 +1.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3649</b><span></span></div>
+  <div class="sc">61点<br>902円</div>
+  <div class="rt"><span class="neg">-8.4%</span>
+    <span class="pk">最高 +0.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6291</b><span></span></div>
+  <div class="sc">58点<br>1,350円</div>
+  <div class="rt"><span class="neg">-2.1%</span>
+    <span class="pk">最高 +0.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5932</b><span></span></div>
+  <div class="sc">58点<br>649円</div>
+  <div class="rt"><span class="flat">+0.3%</span>
+    <span class="pk">最高 +1.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6358</b><span></span></div>
+  <div class="sc">57点<br>2,156円</div>
+  <div class="rt"><span class="neg">-1.0%</span>
+    <span class="pk">最高 +2.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9932</b><span></span></div>
+  <div class="sc">57点<br>1,265円</div>
+  <div class="rt"><span class="flat">-0.3%</span>
+    <span class="pk">最高 +7.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6289</b><span></span></div>
+  <div class="sc">55点<br>1,885円</div>
+  <div class="rt"><span class="pos">+1.5%</span>
+    <span class="pk">最高 +3.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6630</b><span></span></div>
+  <div class="sc">55点<br>750円</div>
+  <div class="rt"><span class="neg">-0.7%</span>
+    <span class="pk">最高 +3.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9651</b><span></span></div>
+  <div class="sc">51点<br>2,060円</div>
+  <div class="rt"><span class="neg">-2.2%</span>
+    <span class="pk">最高 -0.4%</span></div>
+</div><div class="hday">2026-07-09 (18営業日経過)</div><div class="hrow">
+  <div class="id"><b>9619</b><span></span></div>
+  <div class="sc">66点<br>2,299円</div>
+  <div class="rt"><span class="pos">+0.5%</span>
+    <span class="pk">最高 +5.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8008</b><span></span></div>
+  <div class="sc">63点<br>2,060円</div>
+  <div class="rt"><span class="neg">-2.9%</span>
+    <span class="pk">最高 +7.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7128</b><span></span></div>
+  <div class="sc">62点<br>2,477円</div>
+  <div class="rt"><span class="pos">+17.5%</span>
+    <span class="pk">最高 +18.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2533</b><span></span></div>
+  <div class="sc">61点<br>508円</div>
+  <div class="rt"><span class="neg">-6.7%</span>
+    <span class="pk">最高 +3.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>1822</b><span></span></div>
+  <div class="sc">61点<br>822円</div>
+  <div class="rt"><span class="neg">-6.8%</span>
+    <span class="pk">最高 +1.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7354</b><span></span></div>
+  <div class="sc">59点<br>355円</div>
+  <div class="rt"><span class="neg">-3.7%</span>
+    <span class="pk">最高 -0.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8203</b><span></span></div>
+  <div class="sc">56点<br>785円</div>
+  <div class="rt"><span class="neg">-1.8%</span>
+    <span class="pk">最高 +4.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7608</b><span></span></div>
+  <div class="sc">53点<br>834円</div>
+  <div class="rt"><span class="neg">-5.6%</span>
+    <span class="pk">最高 +2.8%</span></div>
+</div><div class="hday">2026-07-08 (19営業日経過)</div><div class="hrow">
+  <div class="id"><b>9628</b><span></span></div>
+  <div class="sc">67点<br>1,450円</div>
+  <div class="rt"><span class="neg">-5.9%</span>
+    <span class="pk">最高 +5.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>1822</b><span></span></div>
+  <div class="sc">65点<br>801円</div>
+  <div class="rt"><span class="neg">-4.4%</span>
+    <span class="pk">最高 +4.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9651</b><span></span></div>
+  <div class="sc">65点<br>2,014円</div>
+  <div class="rt"><span class="flat">+0.0%</span>
+    <span class="pk">最高 +2.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2734</b><span></span></div>
+  <div class="sc">63点<br>1,156円</div>
+  <div class="rt"><span class="neg">-0.9%</span>
+    <span class="pk">最高 +2.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9278</b><span></span></div>
+  <div class="sc">62点<br>2,235円</div>
+  <div class="rt"><span class="pos">+27.0%</span>
+    <span class="pk">最高 +31.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3649</b><span></span></div>
+  <div class="sc">62点<br>856円</div>
+  <div class="rt"><span class="neg">-3.5%</span>
+    <span class="pk">最高 +6.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4951</b><span></span></div>
+  <div class="sc">60点<br>1,531円</div>
+  <div class="rt"><span class="neg">-2.7%</span>
+    <span class="pk">最高 +2.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8131</b><span></span></div>
+  <div class="sc">59点<br>2,235円</div>
+  <div class="rt"><span class="neg">-7.7%</span>
+    <span class="pk">最高 +1.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9740</b><span></span></div>
+  <div class="sc">59点<br>2,857円</div>
+  <div class="rt"><span class="neg">-7.1%</span>
+    <span class="pk">最高 +2.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7976</b><span></span></div>
+  <div class="sc">56点<br>2,734円</div>
+  <div class="rt"><span class="flat">-0.3%</span>
+    <span class="pk">最高 +2.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9535</b><span></span></div>
+  <div class="sc">56点<br>420円</div>
+  <div class="rt"><span class="neg">-1.7%</span>
+    <span class="pk">最高 +2.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2502</b><span></span></div>
+  <div class="sc">54点<br>1,660円</div>
+  <div class="rt"><span class="neg">-1.9%</span>
+    <span class="pk">最高 +8.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6485</b><span></span></div>
+  <div class="sc">54点<br>1,547円</div>
+  <div class="rt"><span class="pos">+1.7%</span>
+    <span class="pk">最高 +3.4%</span></div>
+</div><div class="hday">2026-07-07 (20営業日経過)</div><div class="hrow">
+  <div class="id"><b>6418</b><span></span></div>
+  <div class="sc">68点<br>1,077円</div>
+  <div class="rt"><span class="pos">+5.9%</span>
+    <span class="pk">最高 +7.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9278</b><span></span></div>
+  <div class="sc">64点<br>2,166円</div>
+  <div class="rt"><span class="pos">+31.1%</span>
+    <span class="pk">最高 +35.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3773</b><span></span></div>
+  <div class="sc">61点<br>1,189円</div>
+  <div class="rt"><span class="neg">-9.3%</span>
+    <span class="pk">最高 -1.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2734</b><span></span></div>
+  <div class="sc">59点<br>1,121円</div>
+  <div class="rt"><span class="pos">+2.2%</span>
+    <span class="pk">最高 +5.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4725</b><span></span></div>
+  <div class="sc">59点<br>1,817円</div>
+  <div class="rt"><span class="neg">-1.3%</span>
+    <span class="pk">最高 +4.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7860</b><span></span></div>
+  <div class="sc">59点<br>1,250円</div>
+  <div class="rt"><span class="pos">+0.8%</span>
+    <span class="pk">最高 +8.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3232</b><span></span></div>
+  <div class="sc">56点<br>555円</div>
+  <div class="rt"><span class="neg">-3.6%</span>
+    <span class="pk">最高 +3.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2915</b><span></span></div>
+  <div class="sc">55点<br>2,083円</div>
+  <div class="rt"><span class="neg">-5.9%</span>
+    <span class="pk">最高 +3.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7774</b><span></span></div>
+  <div class="sc">54点<br>656円</div>
+  <div class="rt"><span class="pos">+14.9%</span>
+    <span class="pk">最高 +15.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6638</b><span></span></div>
+  <div class="sc">53点<br>1,988円</div>
+  <div class="rt"><span class="pos">+11.8%</span>
+    <span class="pk">最高 +14.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2659</b><span></span></div>
+  <div class="sc">52点<br>3,380円</div>
+  <div class="rt"><span class="neg">-4.0%</span>
+    <span class="pk">最高 -0.4%</span></div>
+</div><div class="hday">2026-07-06 (21営業日経過)</div><div class="hrow">
+  <div class="id"><b>4493</b><span></span></div>
+  <div class="sc">66点<br>1,960円</div>
+  <div class="rt"><span class="neg">-7.0%</span>
+    <span class="pk">最高 +1.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4617</b><span></span></div>
+  <div class="sc">60点<br>3,805円</div>
+  <div class="rt"><span class="neg">-7.9%</span>
+    <span class="pk">最高 +2.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6445</b><span></span></div>
+  <div class="sc">60点<br>1,383円</div>
+  <div class="rt"><span class="neg">-7.7%</span>
+    <span class="pk">最高 +1.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3276</b><span></span></div>
+  <div class="sc">59点<br>1,369円</div>
+  <div class="rt"><span class="pos">+62.3%</span>
+    <span class="pk">最高 +62.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8059</b><span></span></div>
+  <div class="sc">56点<br>3,215円</div>
+  <div class="rt"><span class="pos">+6.5%</span>
+    <span class="pk">最高 +10.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8613</b><span></span></div>
+  <div class="sc">55点<br>1,106円</div>
+  <div class="rt"><span class="pos">+7.5%</span>
+    <span class="pk">最高 +11.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6023</b><span></span></div>
+  <div class="sc">55点<br>2,880円</div>
+  <div class="rt"><span class="pos">+5.0%</span>
+    <span class="pk">最高 +6.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8818</b><span></span></div>
+  <div class="sc">55点<br>1,162円</div>
+  <div class="rt"><span class="neg">-7.6%</span>
+    <span class="pk">最高 +1.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2918</b><span></span></div>
+  <div class="sc">53点<br>2,713円</div>
+  <div class="rt"><span class="flat">+0.0%</span>
+    <span class="pk">最高 +5.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7466</b><span></span></div>
+  <div class="sc">53点<br>1,355円</div>
+  <div class="rt"><span class="neg">-1.9%</span>
+    <span class="pk">最高 +4.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9009</b><span></span></div>
+  <div class="sc">52点<br>1,255円</div>
+  <div class="rt"><span class="flat">-0.2%</span>
+    <span class="pk">最高 +6.4%</span></div>
+</div><div class="hday">2026-07-03 (22営業日経過)</div><div class="hrow">
+  <div class="id"><b>156A</b><span></span></div>
+  <div class="sc">59点<br>903円</div>
+  <div class="rt"><span class="neg">-9.4%</span>
+    <span class="pk">最高 +3.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8818</b><span></span></div>
+  <div class="sc">57点<br>1,129円</div>
+  <div class="rt"><span class="neg">-4.9%</span>
+    <span class="pk">最高 +4.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3401</b><span></span></div>
+  <div class="sc">55点<br>1,718円</div>
+  <div class="rt"><span class="neg">-4.7%</span>
+    <span class="pk">最高 +3.1%</span></div>
+</div><div class="hday">2026-07-02 (23営業日経過)</div><div class="hrow">
+  <div class="id"><b>1960</b><span></span></div>
+  <div class="sc">65点<br>1,499円</div>
+  <div class="rt"><span class="neg">-3.5%</span>
+    <span class="pk">最高 +6.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3773</b><span></span></div>
+  <div class="sc">65点<br>1,116円</div>
+  <div class="rt"><span class="neg">-3.4%</span>
+    <span class="pk">最高 +6.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9381</b><span></span></div>
+  <div class="sc">62点<br>2,337円</div>
+  <div class="rt"><span class="neg">-2.1%</span>
+    <span class="pk">最高 +4.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4493</b><span></span></div>
+  <div class="sc">59点<br>1,832円</div>
+  <div class="rt"><span class="flat">-0.5%</span>
+    <span class="pk">最高 +8.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3922</b><span></span></div>
+  <div class="sc">57点<br>2,391円</div>
+  <div class="rt"><span class="neg">-14.7%</span>
+    <span class="pk">最高 +4.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5258</b><span></span></div>
+  <div class="sc">56点<br>392円</div>
+  <div class="rt"><span class="pos">+7.9%</span>
+    <span class="pk">最高 +13.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9932</b><span></span></div>
+  <div class="sc">55点<br>1,219円</div>
+  <div class="rt"><span class="pos">+3.4%</span>
+    <span class="pk">最高 +11.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2121</b><span></span></div>
+  <div class="sc">52点<br>2,806円</div>
+  <div class="rt"><span class="pos">+14.4%</span>
+    <span class="pk">最高 +21.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>1375</b><span></span></div>
+  <div class="sc">52点<br>1,155円</div>
+  <div class="rt"><span class="neg">-1.3%</span>
+    <span class="pk">最高 +4.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9201</b><span></span></div>
+  <div class="sc">49点<br>3,011円</div>
+  <div class="rt"><span class="neg">-1.7%</span>
+    <span class="pk">最高 +4.8%</span></div>
+</div><div class="hday">2026-07-01 (24営業日経過)</div><div class="hrow">
+  <div class="id"><b>5942</b><span></span></div>
+  <div class="sc">64点<br>715円</div>
+  <div class="rt"><span class="neg">-9.1%</span>
+    <span class="pk">最高 -3.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8844</b><span></span></div>
+  <div class="sc">62点<br>1,375円</div>
+  <div class="rt"><span class="neg">-7.1%</span>
+    <span class="pk">最高 +9.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6419</b><span></span></div>
+  <div class="sc">60点<br>3,045円</div>
+  <div class="rt"><span class="pos">+0.7%</span>
+    <span class="pk">最高 +6.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6083</b><span></span></div>
+  <div class="sc">59点<br>1,405円</div>
+  <div class="rt"><span class="pos">+12.0%</span>
+    <span class="pk">最高 +16.6%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5258</b><span></span></div>
+  <div class="sc">59点<br>388円</div>
+  <div class="rt"><span class="pos">+9.0%</span>
+    <span class="pk">最高 +14.7%</span></div>
+</div><div class="hday">2026-06-30 (25営業日経過)</div><div class="hrow">
+  <div class="id"><b>6630</b><span></span></div>
+  <div class="sc">64点<br>753円</div>
+  <div class="rt"><span class="neg">-1.1%</span>
+    <span class="pk">最高 +2.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8876</b><span></span></div>
+  <div class="sc">62点<br>1,996円</div>
+  <div class="rt"><span class="neg">-1.9%</span>
+    <span class="pk">最高 +9.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7447</b><span></span></div>
+  <div class="sc">59点<br>1,749円</div>
+  <div class="rt"><span class="flat">-0.1%</span>
+    <span class="pk">最高 +5.9%</span></div>
+</div><div class="hday">2026-06-29 (26営業日経過)</div><div class="hrow">
+  <div class="id"><b>4746</b><span></span></div>
+  <div class="sc">70点<br>4,475円</div>
+  <div class="rt"><span class="pos">+25.8%</span>
+    <span class="pk">最高 +25.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3662</b><span></span></div>
+  <div class="sc">63点<br>998円</div>
+  <div class="rt"><span class="neg">-9.0%</span>
+    <span class="pk">最高 +5.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8595</b><span></span></div>
+  <div class="sc">63点<br>2,412円</div>
+  <div class="rt"><span class="neg">-7.1%</span>
+    <span class="pk">最高 -0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3561</b><span></span></div>
+  <div class="sc">63点<br>1,562円</div>
+  <div class="rt"><span class="pos">+1.0%</span>
+    <span class="pk">最高 +12.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2922</b><span></span></div>
+  <div class="sc">62点<br>1,957円</div>
+  <div class="rt"><span class="neg">-2.0%</span>
+    <span class="pk">最高 +4.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2698</b><span></span></div>
+  <div class="sc">61点<br>3,500円</div>
+  <div class="rt"><span class="pos">+2.6%</span>
+    <span class="pk">最高 +4.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9381</b><span></span></div>
+  <div class="sc">61点<br>2,289円</div>
+  <div class="rt"><span class="flat">-0.1%</span>
+    <span class="pk">最高 +6.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9418</b><span></span></div>
+  <div class="sc">60点<br>1,675円</div>
+  <div class="rt"><span class="pos">+1.5%</span>
+    <span class="pk">最高 +8.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2882</b><span></span></div>
+  <div class="sc">60点<br>2,044円</div>
+  <div class="rt"><span class="neg">-1.3%</span>
+    <span class="pk">最高 +2.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2734</b><span></span></div>
+  <div class="sc">59点<br>1,085円</div>
+  <div class="rt"><span class="pos">+5.6%</span>
+    <span class="pk">最高 +8.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7683</b><span></span></div>
+  <div class="sc">59点<br>1,436円</div>
+  <div class="rt"><span class="neg">-5.3%</span>
+    <span class="pk">最高 +1.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3050</b><span></span></div>
+  <div class="sc">58点<br>1,575円</div>
+  <div class="rt"><span class="neg">-4.1%</span>
+    <span class="pk">最高 +3.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6099</b><span></span></div>
+  <div class="sc">57点<br>755円</div>
+  <div class="rt"><span class="neg">-1.3%</span>
+    <span class="pk">最高 +6.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3196</b><span></span></div>
+  <div class="sc">55点<br>1,583円</div>
+  <div class="rt"><span class="flat">+0.2%</span>
+    <span class="pk">最高 +7.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8200</b><span></span></div>
+  <div class="sc">54点<br>2,192円</div>
+  <div class="rt"><span class="pos">+3.8%</span>
+    <span class="pk">最高 +12.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7458</b><span></span></div>
+  <div class="sc">53点<br>1,734円</div>
+  <div class="rt"><span class="flat">+0.3%</span>
+    <span class="pk">最高 +9.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8174</b><span></span></div>
+  <div class="sc">53点<br>2,896円</div>
+  <div class="rt"><span class="neg">-3.9%</span>
+    <span class="pk">最高 +3.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9842</b><span></span></div>
+  <div class="sc">51点<br>1,944円</div>
+  <div class="rt"><span class="neg">-5.5%</span>
+    <span class="pk">最高 +3.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2810</b><span></span></div>
+  <div class="sc">50点<br>3,727円</div>
+  <div class="rt"><span class="neg">-3.4%</span>
+    <span class="pk">最高 +10.9%</span></div>
+</div><div class="hday">2026-06-26 (27営業日経過)</div><div class="hrow">
+  <div class="id"><b>6630</b><span></span></div>
+  <div class="sc">63点<br>740円</div>
+  <div class="rt"><span class="pos">+0.7%</span>
+    <span class="pk">最高 +4.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3696</b><span></span></div>
+  <div class="sc">57点<br>2,039円</div>
+  <div class="rt"><span class="flat">+0.4%</span>
+    <span class="pk">最高 +10.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4712</b><span></span></div>
+  <div class="sc">56点<br>805円</div>
+  <div class="rt"><span class="neg">-8.2%</span>
+    <span class="pk">最高 -6.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2325</b><span></span></div>
+  <div class="sc">56点<br>4,810円</div>
+  <div class="rt"><span class="neg">-9.0%</span>
+    <span class="pk">最高 +3.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5946</b><span></span></div>
+  <div class="sc">56点<br>2,019円</div>
+  <div class="rt"><span class="pos">+1.4%</span>
+    <span class="pk">最高 +5.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3387</b><span></span></div>
+  <div class="sc">56点<br>719円</div>
+  <div class="rt"><span class="pos">+3.9%</span>
+    <span class="pk">最高 +13.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7723</b><span></span></div>
+  <div class="sc">55点<br>2,980円</div>
+  <div class="rt"><span class="neg">-7.7%</span>
+    <span class="pk">最高 +5.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4985</b><span></span></div>
+  <div class="sc">52点<br>4,770円</div>
+  <div class="rt"><span class="neg">-3.4%</span>
+    <span class="pk">最高 +2.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9672</b><span></span></div>
+  <div class="sc">50点<br>4,875円</div>
+  <div class="rt"><span class="pos">+1.0%</span>
+    <span class="pk">最高 +5.0%</span></div>
+</div><div class="hday">2026-06-25 (28営業日経過)</div><div class="hrow">
+  <div class="id"><b>7856</b><span></span></div>
+  <div class="sc">58点<br>1,761円</div>
+  <div class="rt"><span class="flat">-0.5%</span>
+    <span class="pk">最高 +6.2%</span></div>
+</div><div class="hday">2026-06-23 (30営業日経過)</div><div class="hrow">
+  <div class="id"><b>9828</b><span></span></div>
+  <div class="sc">60点<br>2,939円</div>
+  <div class="rt"><span class="pos">+11.1%</span>
+    <span class="pk">最高 +25.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4088</b><span></span></div>
+  <div class="sc">48点<br>2,660円</div>
+  <div class="rt"><span class="neg">-4.4%</span>
+    <span class="pk">最高 +10.9%</span></div>
+</div>
+
 <div class="legend">
   <span class="l1">枯れ</span><span class="l2">蓄積</span>
   <span class="l3">収束</span><span class="l4">点火</span>
@@ -292,6 +2412,6 @@ footer b{color:var(--kamenozoki);font-weight:500}
   <b>測れていないこと</b>　浮動株比率・信用残・株主構成・板の厚みは日足データからは取れない。
   仕手の核心である需給の軽さは、売買代金の小ささと株価の低さで代用しているにすぎない。<br>
   <b>使い方</b>　リストは売買推奨ではなく、チャートを開く順番。上から順に自分の目で確認すること。<br>
-  生成 2026-08-05 04:27　基準日 2026-08-04（引け後の日足）
+  生成 2026-08-05 04:45　基準日 2026-08-04（引け後の日足）
 </footer>
 </div></body></html>
