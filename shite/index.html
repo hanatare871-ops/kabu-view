@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0C121C">
+<title>初動探知 2026-08-04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0C121C; --indigo-deep:#141F33; --indigo:#22406B; --asagi:#4E8FA6;
+  --kamenozoki:#A9CBD6; --yamabuki:#E8B33C; --kinari:#EDE7DA;
+  --line:rgba(169,203,214,.18); --muted:#8296AC;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--ink); color:var(--kinari);
+  font-family:"Zen Kaku Gothic New",-apple-system,BlinkMacSystemFont,"Hiragino Sans",sans-serif;
+  font-size:15px; line-height:1.7; -webkit-text-size-adjust:100%;
+  background-image:radial-gradient(120% 60% at 50% 0%, #16243C 0%, var(--ink) 62%);
+  background-repeat:no-repeat;
+}
+.wrap{max-width:760px;margin:0 auto;padding:28px 18px 72px}
+header{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:26px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.22em;
+  color:var(--asagi);text-transform:uppercase}
+h1{font-family:"Shippori Mincho",serif;font-weight:600;font-size:30px;line-height:1.3;
+  margin:.35em 0 .2em;letter-spacing:.04em}
+.sub{color:var(--muted);font-size:13px}
+.counts{display:flex;gap:26px;margin-top:16px;font-family:"IBM Plex Mono",monospace}
+.counts div{font-size:12px;color:var(--muted)}
+.counts b{display:block;font-size:26px;color:var(--kinari);font-weight:500}
+.counts b.hot{color:var(--yamabuki)}
+h2{font-family:"Shippori Mincho",serif;font-size:19px;font-weight:600;letter-spacing:.06em;
+  margin:38px 0 6px;display:flex;align-items:baseline;gap:10px}
+h2 .n{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);letter-spacing:0}
+.lead{color:var(--muted);font-size:13px;margin:0 0 16px}
+.card{background:linear-gradient(180deg,rgba(34,64,107,.22),rgba(20,31,51,.22));
+  border:1px solid var(--line);border-radius:3px;padding:15px 16px 14px;margin-bottom:11px}
+.card.hot{border-left:3px solid var(--yamabuki)}
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.code{font-family:"IBM Plex Mono",monospace;font-size:19px;letter-spacing:.06em}
+.name{font-size:13px;color:var(--kamenozoki);margin-left:8px}
+.score{font-family:"IBM Plex Mono",monospace;font-size:22px;color:var(--yamabuki);
+  white-space:nowrap}
+.score small{font-size:11px;color:var(--muted)}
+.px{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin:6px 0 10px}
+.px .up{color:#7BC98B}
+/* 点火メーター: 枯れ→蓄積→収束→点火の4段を積む。長さがそのまま得点。 */
+.meter{display:flex;height:7px;background:rgba(169,203,214,.09);border-radius:1px;overflow:hidden}
+.meter i{display:block;height:100%}
+.m1{background:var(--kamenozoki)} .m2{background:var(--asagi)}
+.m3{background:var(--indigo)} .m4{background:var(--yamabuki)}
+.legend{display:flex;gap:12px;margin-top:6px;font-family:"IBM Plex Mono",monospace;
+  font-size:10px;color:var(--muted);flex-wrap:wrap}
+.legend span::before{content:"";display:inline-block;width:7px;height:7px;margin-right:4px;
+  vertical-align:middle}
+.legend .l1::before{background:var(--kamenozoki)} .legend .l2::before{background:var(--asagi)}
+.legend .l3::before{background:var(--indigo)} .legend .l4::before{background:var(--yamabuki)}
+ul.why{margin:11px 0 0;padding-left:0;list-style:none}
+ul.why li{font-size:12.5px;color:var(--kamenozoki);padding-left:14px;position:relative;
+  margin-bottom:2px}
+ul.why li::before{content:"—";position:absolute;left:0;color:var(--asagi)}
+.stale{border:1px solid rgba(232,179,60,.5);background:rgba(232,179,60,.10);
+  color:var(--yamabuki);border-radius:3px;padding:11px 14px;margin-bottom:20px;font-size:13px}
+.stale b{font-family:"IBM Plex Mono",monospace}
+.empty{border:1px dashed var(--line);border-radius:3px;padding:22px;text-align:center;
+  color:var(--muted);font-size:13px}
+footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:11.5px;line-height:1.85}
+footer b{color:var(--kamenozoki);font-weight:500}
+@media(max-width:420px){h1{font-size:25px}.counts{gap:18px}}
+@media(prefers-reduced-motion:no-preference){
+  .card{animation:rise .5s cubic-bezier(.2,.7,.3,1) backwards}
+}
+@keyframes rise{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+</style>
+</head><body><div class="wrap">
+
+
+<header>
+  <div class="eyebrow">Accumulation → Ignition</div>
+  <h1>初動探知</h1>
+  <div class="sub">枯れた銘柄に火が入る瞬間を、日足の出来高と移動平均から拾う</div>
+  <div class="counts">
+    <div>初動<b class="hot">15</b></div>
+    <div>仕込みウォッチ<b>3</b></div>
+    <div>判定対象<b>1,797</b></div>
+    <div>基準日<b>08/04</b></div>
+  </div>
+</header>
+
+<h2>初動 <span class="n">today ignition</span></h2>
+<p class="lead">長く枯れていた銘柄が、今日はじめて出来高を伴って動いた。翌日以降の追随を見る。</p>
+<div class="card hot">
+  <div class="top">
+    <div><span class="code">8150</span><span class="name"></span></div>
+    <div class="score">62<small>/100</small></div>
+  </div>
+  <div class="px">3,075円 <span class="up">+4.8%</span>
+     ・出来高3.9倍
+     ・売買代金1.3億</div>
+  <div class="meter"><i class="m1" style="width:12.1%"></i><i class="m2" style="width:6.1%"></i><i class="m3" style="width:13.6%"></i><i class="m4" style="width:28.7%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅30%）</li><li>当日の出来高が20日平均の3.9倍</li><li>5/25/75日線が収束していた（幅3.9%）</li><li>20日高値を終値で更新</li><li>直近の安値が切り上がっている</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">7089</span><span class="name"></span></div>
+    <div class="score">62<small>/100</small></div>
+  </div>
+  <div class="px">1,713円 <span class="up">+3.9%</span>
+     ・出来高3.2倍
+     ・売買代金0.4億</div>
+  <div class="meter"><i class="m1" style="width:16.3%"></i><i class="m2" style="width:4.5%"></i><i class="m3" style="width:10.5%"></i><i class="m4" style="width:26.7%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅58%）</li><li>点火前日まで値動きが1年で最も静かな部類だった</li><li>当日の出来高が20日平均の3.2倍</li><li>20日高値を終値で更新</li><li>直近の安値が切り上がっている</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">4206</span><span class="name"></span></div>
+    <div class="score">61<small>/100</small></div>
+  </div>
+  <div class="px">3,904円 <span class="up">+7.0%</span>
+     ・出来高3.1倍
+     ・売買代金10.4億</div>
+  <div class="meter"><i class="m1" style="width:12.0%"></i><i class="m2" style="width:5.3%"></i><i class="m3" style="width:13.2%"></i><i class="m4" style="width:28.8%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅18%）</li><li>当日の出来高が20日平均の3.1倍</li><li>5/25/75日線が収束していた（幅4.4%）</li><li>20日高値を終値で更新</li><li>高値引けに近い強い引け方</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">3374</span><span class="name"></span></div>
+    <div class="score">61<small>/100</small></div>
+  </div>
+  <div class="px">3,590円 <span class="up">+13.1%</span>
+     ・出来高2.8倍
+     ・売買代金1.5億</div>
+  <div class="meter"><i class="m1" style="width:9.2%"></i><i class="m2" style="width:14.7%"></i><i class="m3" style="width:7.6%"></i><i class="m4" style="width:27.2%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅51%）</li><li>当日の出来高が20日平均の2.8倍</li><li>株価が横ばいのままOBVだけ増えていた（吸い上げの疑い）</li><li>3か月の出来高が1年平均の2.22倍に増えたのに株価は据え置き（吸収）</li><li>20日高値を終値で更新</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">4228</span><span class="name"></span></div>
+    <div class="score">60<small>/100</small></div>
+  </div>
+  <div class="px">588円 <span class="up">+7.7%</span>
+     ・出来高2.9倍
+     ・売買代金1.7億</div>
+  <div class="meter"><i class="m1" style="width:9.7%"></i><i class="m2" style="width:4.8%"></i><i class="m3" style="width:13.6%"></i><i class="m4" style="width:27.4%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅47%）</li><li>当日の出来高が20日平均の2.9倍</li><li>3か月の出来高が1年平均の1.46倍に増えたのに株価は据え置き（吸収）</li><li>5/25/75日線が収束していた（幅1.0%）</li><li>20日高値を終値で更新</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">7272</span><span class="name"></span></div>
+    <div class="score">60<small>/100</small></div>
+  </div>
+  <div class="px">1,511円 <span class="up">+13.4%</span>
+     ・出来高5.3倍
+     ・売買代金94.4億</div>
+  <div class="meter"><i class="m1" style="width:12.0%"></i><i class="m2" style="width:9.3%"></i><i class="m3" style="width:7.4%"></i><i class="m4" style="width:29.2%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅29%）</li><li>当日の出来高が20日平均の5.3倍</li><li>20日高値を終値で更新</li><li>高値引けに近い強い引け方</li><li>直近の安値が切り上がっている</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">5981</span><span class="name"></span></div>
+    <div class="score">59<small>/100</small></div>
+  </div>
+  <div class="px">2,050円 <span class="up">+5.3%</span>
+     ・出来高2.4倍
+     ・売買代金1.5億</div>
+  <div class="meter"><i class="m1" style="width:11.3%"></i><i class="m2" style="width:8.0%"></i><i class="m3" style="width:14.0%"></i><i class="m4" style="width:22.6%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅43%）</li><li>当日の出来高が20日平均の2.4倍</li><li>3か月の出来高が1年平均の1.42倍に増えたのに株価は据え置き（吸収）</li><li>5/25/75日線が収束していた（幅3.3%）</li><li>20日高値を終値で更新</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">7745</span><span class="name"></span></div>
+    <div class="score">57<small>/100</small></div>
+  </div>
+  <div class="px">3,235円 <span class="up">+6.1%</span>
+     ・出来高2.5倍
+     ・売買代金3.3億</div>
+  <div class="meter"><i class="m1" style="width:9.7%"></i><i class="m2" style="width:6.4%"></i><i class="m3" style="width:13.1%"></i><i class="m4" style="width:25.9%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅47%）</li><li>当日の出来高が20日平均の2.5倍</li><li>5/25/75日線が収束していた（幅2.9%）</li><li>20日高値を終値で更新</li><li>高値引けに近い強い引け方</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">3159</span><span class="name"></span></div>
+    <div class="score">56<small>/100</small></div>
+  </div>
+  <div class="px">390円 <span class="up">+4.3%</span>
+     ・出来高2.2倍
+     ・売買代金0.7億</div>
+  <div class="meter"><i class="m1" style="width:12.9%"></i><i class="m2" style="width:2.3%"></i><i class="m3" style="width:13.8%"></i><i class="m4" style="width:22.4%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅16%）</li><li>当日の出来高が20日平均の2.2倍</li><li>5/25/75日線が収束していた（幅3.6%）</li><li>20日高値を終値で更新</li><li>直近の安値が切り上がっている</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">8542</span><span class="name"></span></div>
+    <div class="score">56<small>/100</small></div>
+  </div>
+  <div class="px">1,705円 <span class="up">+4.5%</span>
+     ・出来高2.6倍
+     ・売買代金0.6億</div>
+  <div class="meter"><i class="m1" style="width:11.2%"></i><i class="m2" style="width:8.7%"></i><i class="m3" style="width:11.0%"></i><i class="m4" style="width:21.8%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅36%）</li><li>当日の出来高が20日平均の2.6倍</li><li>20日高値を終値で更新</li><li>直近の安値が切り上がっている</li><li>75日線の上で25日線が上向き</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">6677</span><span class="name"></span></div>
+    <div class="score">55<small>/100</small></div>
+  </div>
+  <div class="px">3,680円 <span class="up">+4.0%</span>
+     ・出来高2.2倍
+     ・売買代金2.2億</div>
+  <div class="meter"><i class="m1" style="width:12.0%"></i><i class="m2" style="width:3.5%"></i><i class="m3" style="width:14.2%"></i><i class="m4" style="width:23.8%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅29%）</li><li>当日の出来高が20日平均の2.2倍</li><li>5/25/75日線が収束していた（幅1.8%）</li><li>20日高値を終値で更新</li><li>高値引けに近い強い引け方</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">7296</span><span class="name"></span></div>
+    <div class="score">52<small>/100</small></div>
+  </div>
+  <div class="px">3,800円 <span class="up">+2.7%</span>
+     ・出来高3.2倍
+     ・売買代金3.9億</div>
+  <div class="meter"><i class="m1" style="width:15.1%"></i><i class="m2" style="width:3.6%"></i><i class="m3" style="width:10.4%"></i><i class="m4" style="width:21.1%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅31%）</li><li>当日の出来高が20日平均の3.2倍</li><li>直近の安値が切り上がっている</li><li>75日線の上で25日線が上向き</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">6328</span><span class="name"></span></div>
+    <div class="score">52<small>/100</small></div>
+  </div>
+  <div class="px">2,527円 <span class="up">+2.7%</span>
+     ・出来高2.8倍
+     ・売買代金1.5億</div>
+  <div class="meter"><i class="m1" style="width:11.9%"></i><i class="m2" style="width:3.6%"></i><i class="m3" style="width:14.5%"></i><i class="m4" style="width:19.1%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅47%）</li><li>当日の出来高が20日平均の2.8倍</li><li>5/25/75日線が収束していた（幅1.0%）</li><li>20日高値を終値で更新</li><li>直近の安値が切り上がっている</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">2897</span><span class="name"></span></div>
+    <div class="score">51<small>/100</small></div>
+  </div>
+  <div class="px">2,970円 <span class="up">+4.2%</span>
+     ・出来高4.5倍
+     ・売買代金43.1億</div>
+  <div class="meter"><i class="m1" style="width:12.0%"></i><i class="m2" style="width:6.9%"></i><i class="m3" style="width:10.4%"></i><i class="m4" style="width:21.5%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅29%）</li><li>当日の出来高が20日平均の4.5倍</li><li>高値引けに近い強い引け方</li><li>直近の安値が切り上がっている</li><li>75日線の上で25日線が上向き</li></ul>
+</div><div class="card hot">
+  <div class="top">
+    <div><span class="code">9119</span><span class="name"></span></div>
+    <div class="score">50<small>/100</small></div>
+  </div>
+  <div class="px">1,530円 <span class="up">+0.2%</span>
+     ・出来高3.3倍
+     ・売買代金3.5億</div>
+  <div class="meter"><i class="m1" style="width:9.7%"></i><i class="m2" style="width:4.3%"></i><i class="m3" style="width:14.4%"></i><i class="m4" style="width:18.5%"></i></div>
+  <ul class="why"><li>当日の出来高が20日平均の3.3倍</li><li>5/25/75日線が収束していた（幅2.8%）</li><li>直近の安値が切り上がっている</li><li>75日線の上で25日線が上向き</li></ul>
+</div>
+
+<h2>仕込みウォッチ <span class="n">accumulation, not yet ignited</span></h2>
+<p class="lead">まだ火は付いていないが、値が動かないまま買われている形。点火したら初動に載る。</p>
+<div class="card">
+  <div class="top">
+    <div><span class="code">8141</span><span class="name"></span></div>
+    <div class="score">53<small>/100</small></div>
+  </div>
+  <div class="px">1,579円 <span class="up">+0.6%</span>
+     ・出来高0.3倍
+     ・売買代金2.0億</div>
+  <div class="meter"><i class="m1" style="width:16.3%"></i><i class="m2" style="width:13.1%"></i><i class="m3" style="width:15.0%"></i><i class="m4" style="width:5.0%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅53%）</li><li>点火前日まで値動きが1年で最も静かな部類だった</li><li>3か月の出来高が1年平均の2.11倍に増えたのに株価は据え置き（吸収）</li><li>5/25/75日線が収束していた（幅1.2%）</li><li>高値引けに近い強い引け方</li></ul>
+</div><div class="card">
+  <div class="top">
+    <div><span class="code">4481</span><span class="name"></span></div>
+    <div class="score">46<small>/100</small></div>
+  </div>
+  <div class="px">3,130円 <span class="">-0.6%</span>
+     ・出来高0.6倍
+     ・売買代金3.0億</div>
+  <div class="meter"><i class="m1" style="width:16.3%"></i><i class="m2" style="width:12.3%"></i><i class="m3" style="width:12.8%"></i><i class="m4" style="width:3.0%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅32%）</li><li>3か月の出来高が1年平均の1.86倍に増えたのに株価は据え置き（吸収）</li><li>5/25/75日線が収束していた（幅4.3%）</li><li>直近の安値が切り上がっている</li><li>75日線の上で25日線が上向き</li></ul>
+</div><div class="card">
+  <div class="top">
+    <div><span class="code">6369</span><span class="name"></span></div>
+    <div class="score">53<small>/100</small></div>
+  </div>
+  <div class="px">2,478円 <span class="up">+2.4%</span>
+     ・出来高1.8倍
+     ・売買代金2.3億</div>
+  <div class="meter"><i class="m1" style="width:16.3%"></i><i class="m2" style="width:9.3%"></i><i class="m3" style="width:14.9%"></i><i class="m4" style="width:9.8%"></i></div>
+  <ul class="why"><li>1年間ほとんど動いていない放置株（年間値幅49%）</li><li>点火前日まで値動きが1年で最も静かな部類だった</li><li>3か月の出来高が1年平均の1.35倍に増えたのに株価は据え置き（吸収）</li><li>5/25/75日線が収束していた（幅2.0%）</li><li>直近の安値が切り上がっている</li></ul>
+</div>
+
+<div class="legend">
+  <span class="l1">枯れ</span><span class="l2">蓄積</span>
+  <span class="l3">収束</span><span class="l4">点火</span>
+  <span>バーの長さ＝その項目で取った点数</span>
+</div>
+
+<footer>
+  <b>これは何か</b>　仕手株そのものを当てるものではない。仕手株の急騰前に共通して現れる
+  「枯れ → 静かな買い集め → 出来高を伴う点火」という形を、日足の四本値と出来高だけで採点している。<br>
+  <b>測れていないこと</b>　浮動株比率・信用残・株主構成・板の厚みは日足データからは取れない。
+  仕手の核心である需給の軽さは、売買代金の小ささと株価の低さで代用しているにすぎない。<br>
+  <b>使い方</b>　リストは売買推奨ではなく、チャートを開く順番。上から順に自分の目で確認すること。<br>
+  生成 2026-08-05 04:27　基準日 2026-08-04（引け後の日足）
+</footer>
+</div></body></html>
