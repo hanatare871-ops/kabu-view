@@ -131,7 +131,7 @@ footer b{color:var(--kamenozoki);font-weight:500}
   <div class="sub">基準日 2026年08月05日（引け後の日足）</div>
 </header>
 
-<nav class="tabs"><button data-pane="shite" aria-selected="true">仕手株</button><button data-pane="vcp" aria-selected="false">VCP</button></nav>
+<nav class="tabs"><button data-pane="shite" aria-selected="true">仕手株</button><button data-pane="vcp" aria-selected="false">VCP</button><button data-pane="reversal" aria-selected="false">転換</button></nav>
 <section class="pane on" id="shite">
   <div class="counts">
     <div>初動<b class="hot">0</b></div>
@@ -4066,16 +4066,394 @@ footer b{color:var(--kamenozoki);font-weight:500}
 </div>
 
   <div class="legend"><span class="l1">トレンド</span><span class="l2">収縮</span><span class="l3">出来高</span><span class="l4">ブレイク</span><span>バーの長さ＝その項目で取った点数</span></div>
+</section><section class="pane" id="reversal">
+  <div class="counts">
+    <div>転換確定<b class="hot">0</b></div>
+    <div>転換待ち<b>0</b></div>
+    <div>判定対象<b>0</b></div>
+  </div>
+
+  <div class="dl">
+    <a href="reversal_watchlist.txt" download="reversal_watchlist.txt">↓ TradingView用リスト (.txt)</a>
+    <span>今日の転換確定・転換待ち 計0銘柄</span>
+  </div>
+
+  <h2>転換確定 <span class="n">downtrend reversal confirmed</span></h2>
+  <p class="lead">長い下落のあと、戻り高値を抜いた押し目で安値を切り上げ、高値も更新した。下落トレンドの定義が壊れて上昇の定義が立った形。</p>
+  <div class="empty">今日この条件に合う銘柄はありません。</div>
+
+  <h2>転換待ち <span class="n">neckline cleared, awaiting higher high</span></h2>
+  <p class="lead">戻り高値までは抜けたが、高値切り上げがまだ。ここで底値を割れば形は崩れる。</p>
+  <div class="empty">今日この条件に合う銘柄はありません。</div>
+
+  <h2>これまでの転換確定 <span class="n">past 30 business days</span></h2>
+  <p class="lead">過去に検出した銘柄のその後。左が検出時のスコアと終値、
+  右が検出日の終値からの現在値と、その後つけた最高値までの上昇率。</p>
+  <div class="hsum">
+  <div>件数<b>69</b></div>
+  <div>現在値 中央値<b class="neg">-1.6%</b></div>
+  <div>最高値まで 中央値<b class="pos">+5.8%</b></div>
+  <div>+20%到達<b>12%</b></div>
+  <div>現在プラス<b>36%</b></div>
+</div><div class="hday">2026-08-03 (2営業日経過)</div><div class="hrow">
+  <div class="id"><b>3762</b><span>テクマトリックス</span></div>
+  <div class="sc">69点<br>2,324円</div>
+  <div class="rt"><span class="flat">-0.4%</span>
+    <span class="pk">最高 +2.2%</span></div>
+</div><div class="hday">2026-07-31 (3営業日経過)</div><div class="hrow">
+  <div class="id"><b>8237</b><span>松屋</span></div>
+  <div class="sc">80点<br>1,920円</div>
+  <div class="rt"><span class="pos">+2.1%</span>
+    <span class="pk">最高 +4.5%</span></div>
+</div><div class="hday">2026-07-30 (4営業日経過)</div><div class="hrow">
+  <div class="id"><b>409A</b><span>オリオンビール</span></div>
+  <div class="sc">72点<br>1,318円</div>
+  <div class="rt"><span class="neg">-6.1%</span>
+    <span class="pk">最高 -4.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6289</b><span>技研製作所</span></div>
+  <div class="sc">68点<br>1,931円</div>
+  <div class="rt"><span class="neg">-0.9%</span>
+    <span class="pk">最高 +1.0%</span></div>
+</div><div class="hday">2026-07-29 (5営業日経過)</div><div class="hrow">
+  <div class="id"><b>2216</b><span>カンロ</span></div>
+  <div class="sc">85点<br>1,272円</div>
+  <div class="rt"><span class="neg">-18.0%</span>
+    <span class="pk">最高 +1.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9828</b><span>Ｇｅｎｋｉ　Ｇｌｏｂａｌ　Ｄｉｎｉｎｇ　Ｃｏｎｃｅｐｔｓ</span></div>
+  <div class="sc">80点<br>3,580円</div>
+  <div class="rt"><span class="neg">-8.8%</span>
+    <span class="pk">最高 +2.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6547</b><span>グリーンズ</span></div>
+  <div class="sc">78点<br>2,230円</div>
+  <div class="rt"><span class="neg">-3.5%</span>
+    <span class="pk">最高 +0.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>8227</b><span>しまむら</span></div>
+  <div class="sc">76点<br>3,571円</div>
+  <div class="rt"><span class="neg">-6.7%</span>
+    <span class="pk">最高 +0.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4689</b><span>ＬＩＮＥヤフー</span></div>
+  <div class="sc">73点<br>473円</div>
+  <div class="rt"><span class="neg">-2.6%</span>
+    <span class="pk">最高 +2.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3837</b><span>アドソル日進</span></div>
+  <div class="sc">72点<br>1,534円</div>
+  <div class="rt"><span class="neg">-3.3%</span>
+    <span class="pk">最高 +0.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5285</b><span>ヤマックス</span></div>
+  <div class="sc">68点<br>1,487円</div>
+  <div class="rt"><span class="flat">-0.3%</span>
+    <span class="pk">最高 +2.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3793</b><span>ドリコム</span></div>
+  <div class="sc">67点<br>446円</div>
+  <div class="rt"><span class="flat">-0.2%</span>
+    <span class="pk">最高 +1.6%</span></div>
+</div><div class="hday">2026-07-28 (6営業日経過)</div><div class="hrow">
+  <div class="id"><b>7063</b><span>Ｂｉｒｄｍａｎ</span></div>
+  <div class="sc">84点<br>118円</div>
+  <div class="rt"><span class="neg">-13.6%</span>
+    <span class="pk">最高 +0.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7552</b><span>ハピネット</span></div>
+  <div class="sc">80点<br>3,235円</div>
+  <div class="rt"><span class="pos">+2.6%</span>
+    <span class="pk">最高 +6.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2767</b><span>円谷フィールズホールディングス</span></div>
+  <div class="sc">80点<br>1,930円</div>
+  <div class="rt"><span class="pos">+24.5%</span>
+    <span class="pk">最高 +31.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4432</b><span>ウイングアーク１ｓｔ</span></div>
+  <div class="sc">74点<br>3,055円</div>
+  <div class="rt"><span class="flat">+0.5%</span>
+    <span class="pk">最高 +8.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5929</b><span>三和ホールディングス</span></div>
+  <div class="sc">71点<br>3,953円</div>
+  <div class="rt"><span class="neg">-11.5%</span>
+    <span class="pk">最高 +1.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7611</b><span>ハイデイ日高</span></div>
+  <div class="sc">70点<br>2,884円</div>
+  <div class="rt"><span class="neg">-3.5%</span>
+    <span class="pk">最高 +4.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4755</b><span>楽天グループ</span></div>
+  <div class="sc">66点<br>832円</div>
+  <div class="rt"><span class="flat">-0.0%</span>
+    <span class="pk">最高 +2.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6088</b><span>シグマクシス・ホールディングス</span></div>
+  <div class="sc">66点<br>592円</div>
+  <div class="rt"><span class="neg">-2.0%</span>
+    <span class="pk">最高 +6.6%</span></div>
+</div><div class="hday">2026-07-27 (7営業日経過)</div><div class="hrow">
+  <div class="id"><b>368A</b><span>北里</span></div>
+  <div class="sc">84点<br>1,409円</div>
+  <div class="rt"><span class="pos">+2.6%</span>
+    <span class="pk">最高 +6.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4816</b><span>東映アニメーション</span></div>
+  <div class="sc">77点<br>2,870円</div>
+  <div class="rt"><span class="neg">-2.5%</span>
+    <span class="pk">最高 +8.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9616</b><span>共立メンテナンス</span></div>
+  <div class="sc">76点<br>3,221円</div>
+  <div class="rt"><span class="pos">+6.6%</span>
+    <span class="pk">最高 +10.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9697</b><span>カプコン</span></div>
+  <div class="sc">74点<br>3,519円</div>
+  <div class="rt"><span class="pos">+10.3%</span>
+    <span class="pk">最高 +20.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3391</b><span>ツルハホールディングス</span></div>
+  <div class="sc">72点<br>2,479円</div>
+  <div class="rt"><span class="neg">-3.7%</span>
+    <span class="pk">最高 +6.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7832</b><span>バンダイナムコホールディングス</span></div>
+  <div class="sc">70点<br>4,419円</div>
+  <div class="rt"><span class="pos">+1.0%</span>
+    <span class="pk">最高 +10.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>9024</b><span>西武ホールディングス</span></div>
+  <div class="sc">68点<br>3,665円</div>
+  <div class="rt"><span class="neg">-8.9%</span>
+    <span class="pk">最高 +3.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3798</b><span>ＵＬＳグループ</span></div>
+  <div class="sc">68点<br>566円</div>
+  <div class="rt"><span class="neg">-1.6%</span>
+    <span class="pk">最高 +4.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3660</b><span>アイスタイル</span></div>
+  <div class="sc">67点<br>437円</div>
+  <div class="rt"><span class="neg">-1.1%</span>
+    <span class="pk">最高 +3.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5273</b><span>三谷セキサン</span></div>
+  <div class="sc">67点<br>1,839円</div>
+  <div class="rt"><span class="pos">+0.7%</span>
+    <span class="pk">最高 +6.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3626</b><span>ＴＩＳＩ</span></div>
+  <div class="sc">67点<br>3,665円</div>
+  <div class="rt"><span class="flat">-0.2%</span>
+    <span class="pk">最高 +10.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7550</b><span>ゼンショーホールディングス</span></div>
+  <div class="sc">66点<br>9,696円</div>
+  <div class="rt"><span class="pos">+3.1%</span>
+    <span class="pk">最高 +8.6%</span></div>
+</div><div class="hday">2026-07-23 (9営業日経過)</div><div class="hrow">
+  <div class="id"><b>7022</b><span>サノヤスホールディングス</span></div>
+  <div class="sc">71点<br>322円</div>
+  <div class="rt"><span class="neg">-4.7%</span>
+    <span class="pk">最高 -1.6%</span></div>
+</div><div class="hday">2026-07-22 (10営業日経過)</div><div class="hrow">
+  <div class="id"><b>6637</b><span>寺崎電気産業</span></div>
+  <div class="sc">70点<br>3,950円</div>
+  <div class="rt"><span class="pos">+0.9%</span>
+    <span class="pk">最高 +8.6%</span></div>
+</div><div class="hday">2026-07-21 (11営業日経過)</div><div class="hrow">
+  <div class="id"><b>4828</b><span>ビジネスエンジニアリング</span></div>
+  <div class="sc">75点<br>1,175円</div>
+  <div class="rt"><span class="flat">+0.4%</span>
+    <span class="pk">最高 +9.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5834</b><span>ＳＢＩリーシングサービス</span></div>
+  <div class="sc">73点<br>2,770円</div>
+  <div class="rt"><span class="neg">-2.1%</span>
+    <span class="pk">最高 +7.0%</span></div>
+</div><div class="hday">2026-07-15 (15営業日経過)</div><div class="hrow">
+  <div class="id"><b>276A</b><span>ククレブ・アドバイザーズ</span></div>
+  <div class="sc">88点<br>4,025円</div>
+  <div class="rt"><span class="neg">-16.9%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>438A</b><span>インフキュリオン</span></div>
+  <div class="sc">85点<br>848円</div>
+  <div class="rt"><span class="pos">+0.9%</span>
+    <span class="pk">最高 +4.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3479</b><span>ＴＫＰ</span></div>
+  <div class="sc">81点<br>1,820円</div>
+  <div class="rt"><span class="pos">+4.4%</span>
+    <span class="pk">最高 +8.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>7071</b><span>アンビスホールディングス</span></div>
+  <div class="sc">69点<br>386円</div>
+  <div class="rt"><span class="neg">-2.6%</span>
+    <span class="pk">最高 +3.6%</span></div>
+</div><div class="hday">2026-07-14 (16営業日経過)</div><div class="hrow">
+  <div class="id"><b>6226</b><span>守谷輸送機工業</span></div>
+  <div class="sc">83点<br>2,549円</div>
+  <div class="rt"><span class="neg">-10.2%</span>
+    <span class="pk">最高 +7.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4418</b><span>ＪＤＳＣ</span></div>
+  <div class="sc">83点<br>920円</div>
+  <div class="rt"><span class="neg">-15.4%</span>
+    <span class="pk">最高 +11.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4180</b><span>Ａｐｐｉｅｒ　Ｇｒｏｕｐ</span></div>
+  <div class="sc">78点<br>947円</div>
+  <div class="rt"><span class="pos">+2.1%</span>
+    <span class="pk">最高 +5.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5253</b><span>カバー</span></div>
+  <div class="sc">78点<br>1,694円</div>
+  <div class="rt"><span class="neg">-13.9%</span>
+    <span class="pk">最高 +3.1%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>4443</b><span>Ｓａｎｓａｎ</span></div>
+  <div class="sc">77点<br>1,850円</div>
+  <div class="rt"><span class="pos">+1.8%</span>
+    <span class="pk">最高 +13.8%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3565</b><span>アセンテック</span></div>
+  <div class="sc">71点<br>439円</div>
+  <div class="rt"><span class="neg">-6.2%</span>
+    <span class="pk">最高 +2.5%</span></div>
+</div><div class="hday">2026-07-13 (17営業日経過)</div><div class="hrow">
+  <div class="id"><b>4199</b><span>ワンダープラネット</span></div>
+  <div class="sc">75点<br>903円</div>
+  <div class="rt"><span class="neg">-11.8%</span>
+    <span class="pk">最高 +16.6%</span></div>
+</div><div class="hday">2026-07-10 (18営業日経過)</div><div class="hrow">
+  <div class="id"><b>6224</b><span>ＪＲＣ</span></div>
+  <div class="sc">70点<br>1,380円</div>
+  <div class="rt"><span class="neg">-18.8%</span>
+    <span class="pk">最高 +0.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5575</b><span>Ｇｌｏｂｅｅ</span></div>
+  <div class="sc">68点<br>676円</div>
+  <div class="rt"><span class="pos">+51.6%</span>
+    <span class="pk">最高 +83.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5254</b><span>Ａｒｅｎｔ</span></div>
+  <div class="sc">68点<br>4,270円</div>
+  <div class="rt"><span class="pos">+5.2%</span>
+    <span class="pk">最高 +5.2%</span></div>
+</div><div class="hday">2026-07-09 (19営業日経過)</div><div class="hrow">
+  <div class="id"><b>2533</b><span>オエノンホールディングス</span></div>
+  <div class="sc">80点<br>508円</div>
+  <div class="rt"><span class="neg">-6.7%</span>
+    <span class="pk">最高 +3.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>2721</b><span>ジェイホールディングス</span></div>
+  <div class="sc">80点<br>126円</div>
+  <div class="rt"><span class="flat">+0.0%</span>
+    <span class="pk">最高 +25.4%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5258</b><span>トランザクション・メディア・ネットワークス</span></div>
+  <div class="sc">71点<br>408円</div>
+  <div class="rt"><span class="pos">+3.7%</span>
+    <span class="pk">最高 +9.1%</span></div>
+</div><div class="hday">2026-07-08 (20営業日経過)</div><div class="hrow">
+  <div class="id"><b>6469</b><span>放電精密加工研究所</span></div>
+  <div class="sc">74点<br>3,235円</div>
+  <div class="rt"><span class="neg">-15.9%</span>
+    <span class="pk">最高 +1.9%</span></div>
+</div><div class="hday">2026-07-07 (21営業日経過)</div><div class="hrow">
+  <div class="id"><b>9556</b><span>ＩＮＴＬＯＯＰ</span></div>
+  <div class="sc">69点<br>1,902円</div>
+  <div class="rt"><span class="pos">+6.1%</span>
+    <span class="pk">最高 +9.9%</span></div>
+</div><div class="hday">2026-07-06 (22営業日経過)</div><div class="hrow">
+  <div class="id"><b>4424</b><span>Ａｍａｚｉａ</span></div>
+  <div class="sc">87点<br>352円</div>
+  <div class="rt"><span class="pos">+14.5%</span>
+    <span class="pk">最高 +35.2%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6638</b><span>ミマキエンジニアリング</span></div>
+  <div class="sc">84点<br>1,937円</div>
+  <div class="rt"><span class="pos">+14.7%</span>
+    <span class="pk">最高 +17.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3850</b><span>エヌ・ティ・ティ・データ・イントラマート</span></div>
+  <div class="sc">73点<br>3,170円</div>
+  <div class="rt"><span class="pos">+3.9%</span>
+    <span class="pk">最高 +5.7%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>1812</b><span>鹿島建設</span></div>
+  <div class="sc">67点<br>6,227円</div>
+  <div class="rt"><span class="neg">-14.7%</span>
+    <span class="pk">最高 +1.0%</span></div>
+</div><div class="hday">2026-07-03 (23営業日経過)</div><div class="hrow">
+  <div class="id"><b>2726</b><span>パルグループホールディングス</span></div>
+  <div class="sc">77点<br>1,514円</div>
+  <div class="rt"><span class="neg">-2.8%</span>
+    <span class="pk">最高 +3.2%</span></div>
+</div><div class="hday">2026-07-02 (24営業日経過)</div><div class="hrow">
+  <div class="id"><b>3661</b><span>エムアップホールディングス</span></div>
+  <div class="sc">78点<br>739円</div>
+  <div class="rt"><span class="pos">+6.9%</span>
+    <span class="pk">最高 +11.0%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>5578</b><span>ＡＲアドバンストテクノロジ</span></div>
+  <div class="sc">72点<br>941円</div>
+  <div class="rt"><span class="neg">-12.3%</span>
+    <span class="pk">最高 +9.5%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3349</b><span>コスモス薬品</span></div>
+  <div class="sc">66点<br>6,366円</div>
+  <div class="rt"><span class="neg">-0.9%</span>
+    <span class="pk">最高 +11.4%</span></div>
+</div><div class="hday">2026-07-01 (25営業日経過)</div><div class="hrow">
+  <div class="id"><b>8844</b><span>コスモスイニシア</span></div>
+  <div class="sc">73点<br>1,375円</div>
+  <div class="rt"><span class="neg">-7.1%</span>
+    <span class="pk">最高 +9.8%</span></div>
+</div><div class="hday">2026-06-30 (26営業日経過)</div><div class="hrow">
+  <div class="id"><b>6166</b><span>中村超硬</span></div>
+  <div class="sc">85点<br>766円</div>
+  <div class="rt"><span class="neg">-18.8%</span>
+    <span class="pk">最高 +23.9%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>3994</b><span>マネーフォワード</span></div>
+  <div class="sc">69点<br>4,371円</div>
+  <div class="rt"><span class="pos">+16.2%</span>
+    <span class="pk">最高 +39.3%</span></div>
+</div><div class="hrow">
+  <div class="id"><b>6535</b><span>アイモバイル</span></div>
+  <div class="sc">69点<br>518円</div>
+  <div class="rt"><span class="neg">-6.8%</span>
+    <span class="pk">最高 +5.8%</span></div>
+</div><div class="hday">2026-06-29 (27営業日経過)</div><div class="hrow">
+  <div class="id"><b>7746</b><span>岡本硝子</span></div>
+  <div class="sc">76点<br>949円</div>
+  <div class="rt"><span class="neg">-22.6%</span>
+    <span class="pk">最高 +2.2%</span></div>
+</div><div class="hday">2026-06-25 (29営業日経過)</div><div class="hrow">
+  <div class="id"><b>6620</b><span>宮越ホールディングス</span></div>
+  <div class="sc">74点<br>757円</div>
+  <div class="rt"><span class="neg">-9.6%</span>
+    <span class="pk">最高 +38.7%</span></div>
+</div>
+
+  <div class="legend"><span class="l1">構造</span><span class="l2">出来高</span><span class="l3">時間・移動平均</span><span class="l4">相対力</span><span>バーの長さ＝その項目で取った点数</span></div>
 </section>
 
 <footer>
-  <b>使い方</b>　カードをタップすると直近30営業日のローソク足（5・25・75日線と出来高つき）が開く。
+  <b>使い方</b>　カードをタップするとローソク足（5日=赤・25日=黄・75日=緑と出来高つき）が開く。
+  仕手株とVCPは直近30営業日、転換は75営業日。転換のチャートには過去のサイン位置も▲で入る。
   上のボタンで今日の検出銘柄をTradingView用のテキストとして落とせる。<br>
-  <b>共通の注意</b>　どちらのリストも売買推奨ではなく、チャートを開く順番。
+  <b>共通の注意</b>　どのリストも売買推奨ではなく、チャートを開く順番。
   判定は当日の引け値ベースなので、実際に入れるのは翌日以降になる。<br>
   <b>測れていないこと</b>　浮動株比率・信用残・株主構成・板の厚みは日足データに入っていない。
   需給の軽さは売買代金と株価水準で代用しているにすぎない。<br>
-  生成 2026-08-05 20:16　基準日 2026-08-05
+  生成 2026-08-06 13:33　基準日 2026-08-05
 </footer>
 </div>
 <script type="application/json" id="chartdata">{}</script>
@@ -4190,8 +4568,19 @@ function drawChart(code){
              '" fill="' + (up ? col : 'none') + '" stroke="' + col + '" stroke-width="1"/>');
   }
 
+  /* 転換のネックライン（戻り高値） */
+  if (d.neck !== undefined && d.neck > lo && d.neck < hi){
+    var ny = y(d.neck);
+    out.push('<line x1="' + L + '" y1="' + ny.toFixed(1) + '" x2="' + (W - R + 2) +
+             '" y2="' + ny.toFixed(1) + '" stroke="#A9CBD6" stroke-width="1" ' +
+             'stroke-dasharray="5 4" opacity=".55"/>');
+    out.push('<text x="' + (L + 4) + '" y="' + (ny - 4).toFixed(1) +
+             '" fill="#A9CBD6" font-size="10" opacity=".8" ' +
+             'font-family="IBM Plex Mono,Zen Kaku Gothic New,sans-serif">戻り高値 ' + fmt(d.neck) + '</text>');
+  }
+
   /* 移動平均 */
-  [['s5','#D23627'], ['s25','#FADF00'], ['s75','#66ff00']].forEach(function(p){
+  [['s5','#FF5A52'], ['s25','#F5C542'], ['s75','#4FD18B']].forEach(function(p){
     var arr = d[p[0]] || [], seg = [], parts = [];
     for (var i = 0; i < n; i++){
       if (arr[i] === null || arr[i] === undefined || !isFinite(arr[i])){
@@ -4208,6 +4597,29 @@ function drawChart(code){
     });
   });
 
+  /* 転換の骨格（L0 最後の安値 / B ブレイク / H1 戻り高値 / L1 押し目） */
+  (d.tg || []).forEach(function(a){
+    if (a.i == null || a.i < 0 || a.i >= n) return;
+    out.push('<text x="' + cx(a.i).toFixed(1) + '" y="' + (y(d.l[a.i]) + 11).toFixed(1) +
+             '" fill="#A9CBD6" font-size="9" text-anchor="middle" opacity=".85" ' +
+             'font-family="IBM Plex Mono,monospace">' + esc(a.t) + '</text>');
+  });
+
+  /* 過去に転換サインが出た日 */
+  (d.mk || []).forEach(function(m){
+    if (m.i == null || m.i < 0 || m.i >= n) return;
+    var mx = cx(m.i), my = y(d.l[m.i]) + 16;
+    out.push('<path d="M' + mx.toFixed(1) + ',' + my.toFixed(1) +
+             ' l-5,8 l10,0 Z" fill="#4FD18B"/>');
+    if (m.s != null){
+      /* 右端に出たサインは点数が価格の目盛りに重なるので、内側へ寄せる */
+      var near = mx > W - R - 22;
+      out.push('<text x="' + (near ? (W - R - 4) : mx).toFixed(1) + '" y="' + (my + 18).toFixed(1) +
+               '" fill="#4FD18B" font-size="9" text-anchor="' + (near ? 'end' : 'middle') + '" ' +
+               'font-family="IBM Plex Mono,monospace">' + Math.round(m.s) + '</text>');
+    }
+  });
+
   /* 日付 */
   [0, Math.floor((n-1)/2), n-1].forEach(function(i, k){
     out.push('<text x="' + cx(i).toFixed(1) + '" y="' + (H - 2) +
@@ -4215,11 +4627,16 @@ function drawChart(code){
              (k === 0 ? 'start' : (k === 2 ? 'end' : 'middle')) + '">' + esc(d.d[i]) + '</text>');
   });
   out.push('</svg>');
-  out.push('<div class="cap">' +
-    '<span><i style="background:#EDE7DA"></i>5日</span>' +
-    '<span><i style="background:#E8B33C"></i>25日</span>' +
-    '<span><i style="background:#4E8FA6"></i>75日</span>' +
-    '<span>直近' + n + '営業日</span></div>');
+  var cap = '<div class="cap">' +
+    '<span><i style="background:#FF5A52"></i>5日</span>' +
+    '<span><i style="background:#F5C542"></i>25日</span>' +
+    '<span><i style="background:#4FD18B"></i>75日</span>' +
+    '<span>直近' + n + '営業日</span>';
+  if ((d.mk && d.mk.length) || (d.tg && d.tg.length)){
+    cap += '<span style="color:#4FD18B">▲ 転換サイン（数字は点数）</span>' +
+           '<span>L0 最後の安値 ・ B ブレイク ・ H1 戻り高値 ・ L1 押し目</span>';
+  }
+  out.push(cap + '</div>');
   return out.join('');
 }
 
