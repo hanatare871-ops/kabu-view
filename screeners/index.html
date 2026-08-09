@@ -111,6 +111,28 @@ ul.why li::before{content:"—";position:absolute;left:0;color:var(--asagi)}
 .hrow .rt .pk{font-size:10.5px;color:var(--muted);display:block;line-height:1.4}
 .pos{color:#7BC98B} .neg{color:#D98A8A} .flat{color:var(--muted)}
 
+/* タブ上部の折りたたみ解説 */
+.note{border:1px solid var(--line);border-radius:3px;background:rgba(34,64,107,.14);
+  margin:14px 0 4px}
+.note summary{cursor:pointer;list-style:none;padding:11px 14px;font-size:13px;
+  color:var(--kamenozoki);display:flex;align-items:center;gap:8px}
+.note summary::-webkit-details-marker{display:none}
+.note summary::before{content:"▶";font-size:10px;color:var(--asagi);
+  display:inline-block;transition:transform .18s}
+.note[open] summary::before{transform:rotate(90deg)}
+.note summary b{font-weight:500;color:var(--kinari)}
+.note .body{padding:2px 15px 15px;font-size:12.5px;color:var(--muted);line-height:1.9}
+.note .body h4{font-family:"Shippori Mincho",serif;font-size:14px;font-weight:600;
+  color:var(--kinari);margin:16px 0 5px;letter-spacing:.04em}
+.note .body h4:first-child{margin-top:6px}
+.note .body table{width:100%;border-collapse:collapse;margin:6px 0 10px}
+.note .body td{padding:4px 8px 4px 0;vertical-align:top;
+  border-bottom:1px solid rgba(169,203,214,.08)}
+.note .body td:first-child{width:34px;font-family:"IBM Plex Mono",monospace;
+  color:var(--yamabuki);white-space:nowrap}
+.note .body em{font-style:normal;color:var(--kamenozoki)}
+.note .body p{margin:0 0 8px}
+
 /* 履歴の行をタップできるようにする */
 .hitem{border-bottom:1px solid rgba(169,203,214,.07)}
 .hitem.clickable{cursor:pointer}
@@ -172,6 +194,8 @@ footer b{color:var(--kamenozoki);font-weight:500}
     <div>仕込みウォッチ<b>0</b></div>
     <div>判定対象<b>0</b></div>
   </div>
+
+  
 
   <div class="dl">
     <a href="shite_watchlist.txt" download="shite_watchlist.txt">↓ TradingView用リスト (.txt)</a>
@@ -3949,6 +3973,8 @@ footer b{color:var(--kamenozoki);font-weight:500}
     <div>判定対象<b>0</b></div>
   </div>
 
+  
+
   <div class="dl">
     <a href="vcp_watchlist.txt" download="vcp_watchlist.txt">↓ TradingView用リスト (.txt)</a>
     <span>今日のブレイク・セットアップ 計0銘柄</span>
@@ -7285,6 +7311,50 @@ footer b{color:var(--kamenozoki);font-weight:500}
     <div>判定対象<b>0</b></div>
   </div>
 
+  <details class="note">
+<summary><b>L0 / B / H1 / L1 の使い方</b>（チャート上の記号）</summary>
+<div class="body">
+<p>判定は日足の引け値で確定させているので、ザラ場では動かない。翌日以降の判断材料になる。
+ただし<em>記号そのものより、記号が示す価格水準のほうが実用的</em>。</p>
+
+<h4>各記号の意味</h4>
+<table>
+<tr><td>L0</td><td>下落の最後の安値。ここを割ったら転換は完全に否定される</td></tr>
+<tr><td>B</td><td>ネックライン（L0直前の戻り高値）を終値で抜いた日</td></tr>
+<tr><td>H1</td><td>Bのあとに付けた戻り高値。ここを抜いて転換確定</td></tr>
+<tr><td>L1</td><td>H1からの押し目安値。L0を割らずに耐えた点</td></tr>
+</table>
+
+<h4>① 損切り水準を決める</h4>
+<p>これが一番効く。<em>L1とL0は明確な価格</em>で、L1を終値で割れば形が崩れかけ、
+L0を割れば判定そのものが無効になる。「なんとなく8%下」ではなく、
+形の根拠に紐づいた損切り位置が引ける。<br>
+チャートを開いてL1とL0の価格をメモしておけば、
+<em>ザラ場中でも「今この価格はL1の上か下か」は自分で判断できる</em>。
+記号は更新されなくても、水準は固定なので使える。</p>
+
+<h4>② 検出の答え合わせ</h4>
+<p>スコアだけ見ても納得できない。L0/B/H1/L1が素直な位置に付いているかを目で見て、
+変な場所に付いていたら（ジグザグがノイズを拾っただけなど）そのシグナルは見送る。
+<em>信用しないための材料</em>として使うのが現実的。</p>
+
+<h4>③ 追うか待つか</h4>
+<p>確定日は既にH1を上抜いた後なので、ある程度上がった状態。
+ネックラインやL1からどれだけ離れているかを見て、そのまま追うか押し目を待つかを判断する。
+乖離が大きければ翌日の寄りで飛びつくのは分が悪い。</p>
+
+<h4>④ 転換待ちリストの日々の監視</h4>
+<p>記号の一番の使いどころかもしれない。転換待ちはBまで済んだ状態なので、
+<em>L1がこれからどこに付くかを毎日見る</em>ことになる。
+L0を割らずに反発すれば確定に上がる可能性があり、割れば脱落する。
+監視すべき価格が具体的に決まるので、待ち方が明確になる。</p>
+
+<h4>注意</h4>
+<p>「転換待ち→確定」への遷移率はまだ計測していない。
+④の使い方がどれだけ有効かは、実データで何割が確定に進むかを見てからでないと分からない。</p>
+</div>
+</details>
+
   <div class="dl">
     <a href="reversal_watchlist.txt" download="reversal_watchlist.txt">↓ TradingView用リスト (.txt)</a>
     <span>今日の転換確定・転換待ち 計0銘柄</span>
@@ -7901,7 +7971,7 @@ footer b{color:var(--kamenozoki);font-weight:500}
   判定は当日の引け値ベースなので、実際に入れるのは翌日以降になる。<br>
   <b>測れていないこと</b>　浮動株比率・信用残・株主構成・板の厚みは日足データに入っていない。
   需給の軽さは売買代金と株価水準で代用しているにすぎない。<br>
-  生成 2026-08-07 17:36　基準日 2026-08-07
+  生成 2026-08-09 09:07　基準日 2026-08-07
 </footer>
 </div>
 <script type="application/json" id="chartdata" data-url="charts.json"></script>
