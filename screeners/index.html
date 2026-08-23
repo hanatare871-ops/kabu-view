@@ -68,6 +68,12 @@ h2 .n{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted);le
 .legend .l1::before{background:var(--kamenozoki)} .legend .l2::before{background:var(--asagi)}
 .legend .l3::before{background:var(--indigo)} .legend .l4::before{background:var(--yamabuki)}
 .card.clickable{cursor:pointer}
+.card .new{display:inline-block;background:var(--yamabuki);color:#0C121C;
+  font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:500;
+  letter-spacing:.08em;border-radius:2px;padding:1px 5px;margin-left:8px;
+  vertical-align:2px}
+.card .days{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--muted);
+  margin-left:8px}
 .card .chev{font-size:11px;color:var(--asagi);margin-left:8px;
   display:inline-block;transition:transform .18s}
 .card.open .chev{transform:rotate(90deg)}
@@ -224,6 +230,7 @@ footer b{color:var(--kamenozoki);font-weight:500}
     <div>動意<b class="hot">12</b></div>
     <div>反転候補<b>8</b></div>
     <div>判定対象<b>2,187</b></div>
+    <div>今日から<b class="hot">5</b></div>
   </div>
 
   
@@ -235,9 +242,39 @@ footer b{color:var(--kamenozoki);font-weight:500}
 
   <h2>動意 <span class="n">likely to move, trending up</span></h2>
   <p class="lead">これから20営業日のうちに大きく動きやすい形で、直近は上げてきている。実測で±20%到達率が母集団の約3.9倍。方向までは当てていないのでチャートを見て自分で判断すること。</p>
-  <div class="card clickable hot" data-code="5240">
+  <div class="card clickable hot" data-code="4392">
   <div class="top">
-    <div><span class="code">5240</span><span class="name">ｍｏｎｏＡＩ　ｔｅｃｈｎｏｌｏｇｙ</span><span class="chev">▶</span></div>
+    <div><span class="code">4392</span><span class="name">ＦＩＧ</span><span class="new">NEW</span><span class="chev">▶</span></div>
+    <div class="score">88<small>/100</small></div>
+  </div>
+  <div class="px">1,132円 <span class="">-13.0%</span>
+     ・出来高2.1倍 ・売買代金57.0億</div>
+  <div class="meter"><i class="m1" style="width:50.0%"></i><i class="m2" style="width:17.0%"></i><i class="m3" style="width:17.0%"></i><i class="m4" style="width:4.0%"></i></div>
+  <ul class="why"><li>20日の値幅が株価の48%（広いほど大きく動きやすい）</li><li>5/25/75日線が19%に広がっている</li><li>3か月の出来高が1年平均の2.30倍</li><li>20日で+22%・上げてきている</li><li>60日で-49%</li></ul>
+  <div class="chart"></div>
+</div><div class="card clickable hot" data-code="150A">
+  <div class="top">
+    <div><span class="code">150A</span><span class="name">ＪＳＨ</span><span class="new">NEW</span><span class="chev">▶</span></div>
+    <div class="score">88<small>/100</small></div>
+  </div>
+  <div class="px">746円 <span class="">-6.9%</span>
+     ・出来高0.8倍 ・売買代金4.7億</div>
+  <div class="meter"><i class="m1" style="width:42.8%"></i><i class="m2" style="width:20.2%"></i><i class="m3" style="width:20.1%"></i><i class="m4" style="width:4.8%"></i></div>
+  <ul class="why"><li>20日の値幅が株価の50%（広いほど大きく動きやすい）</li><li>5/25/75日線が37%に広がっている</li><li>3か月の出来高が1年平均の3.92倍</li><li>20日で+15%・上げてきている</li><li>60日で+116%</li></ul>
+  <div class="chart"></div>
+</div><div class="card clickable hot" data-code="3187">
+  <div class="top">
+    <div><span class="code">3187</span><span class="name">ミラタップ</span><span class="new">NEW</span><span class="chev">▶</span></div>
+    <div class="score">85<small>/100</small></div>
+  </div>
+  <div class="px">371円 <span class="up">+3.6%</span>
+     ・出来高1.0倍 ・売買代金0.3億</div>
+  <div class="meter"><i class="m1" style="width:41.1%"></i><i class="m2" style="width:21.9%"></i><i class="m3" style="width:17.4%"></i><i class="m4" style="width:5.0%"></i></div>
+  <ul class="why"><li>20日の値幅が株価の35%（広いほど大きく動きやすい）</li><li>5/25/75日線が26%に広がっている</li><li>3か月の出来高が1年平均の1.55倍</li><li>20日で+8%・上げてきている</li><li>60日で+50%</li></ul>
+  <div class="chart"></div>
+</div><div class="card clickable hot" data-code="5240">
+  <div class="top">
+    <div><span class="code">5240</span><span class="name">ｍｏｎｏＡＩ　ｔｅｃｈｎｏｌｏｇｙ</span><span class="days">18日連続</span><span class="chev">▶</span></div>
     <div class="score">99<small>/100</small></div>
   </div>
   <div class="px">218円 <span class="">-10.7%</span>
@@ -247,7 +284,7 @@ footer b{color:var(--kamenozoki);font-weight:500}
   <div class="chart"></div>
 </div><div class="card clickable hot" data-code="8254">
   <div class="top">
-    <div><span class="code">8254</span><span class="name">さいか屋</span><span class="chev">▶</span></div>
+    <div><span class="code">8254</span><span class="name">さいか屋</span><span class="days">15日連続</span><span class="chev">▶</span></div>
     <div class="score">96<small>/100</small></div>
   </div>
   <div class="px">316円 <span class="up">+10.5%</span>
@@ -257,7 +294,7 @@ footer b{color:var(--kamenozoki);font-weight:500}
   <div class="chart"></div>
 </div><div class="card clickable hot" data-code="4169">
   <div class="top">
-    <div><span class="code">4169</span><span class="name">ＥＮＥＣＨＡＮＧＥ</span><span class="chev">▶</span></div>
+    <div><span class="code">4169</span><span class="name">ＥＮＥＣＨＡＮＧＥ</span><span class="days">6日連続</span><span class="chev">▶</span></div>
     <div class="score">96<small>/100</small></div>
   </div>
   <div class="px">306円 <span class="">-6.4%</span>
@@ -267,7 +304,7 @@ footer b{color:var(--kamenozoki);font-weight:500}
   <div class="chart"></div>
 </div><div class="card clickable hot" data-code="4052">
   <div class="top">
-    <div><span class="code">4052</span><span class="name">フィーチャ</span><span class="chev">▶</span></div>
+    <div><span class="code">4052</span><span class="name">フィーチャ</span><span class="days">9日連続</span><span class="chev">▶</span></div>
     <div class="score">95<small>/100</small></div>
   </div>
   <div class="px">531円 <span class="">-4.3%</span>
@@ -277,7 +314,7 @@ footer b{color:var(--kamenozoki);font-weight:500}
   <div class="chart"></div>
 </div><div class="card clickable hot" data-code="9444">
   <div class="top">
-    <div><span class="code">9444</span><span class="name">トーシンホールディングス</span><span class="chev">▶</span></div>
+    <div><span class="code">9444</span><span class="name">トーシンホールディングス</span><span class="days">10日連続</span><span class="chev">▶</span></div>
     <div class="score">92<small>/100</small></div>
   </div>
   <div class="px">268円 <span class="">-0.7%</span>
@@ -287,7 +324,7 @@ footer b{color:var(--kamenozoki);font-weight:500}
   <div class="chart"></div>
 </div><div class="card clickable hot" data-code="5242">
   <div class="top">
-    <div><span class="code">5242</span><span class="name">アイズ</span><span class="chev">▶</span></div>
+    <div><span class="code">5242</span><span class="name">アイズ</span><span class="days">12日連続</span><span class="chev">▶</span></div>
     <div class="score">90<small>/100</small></div>
   </div>
   <div class="px">1,938円 <span class="up">+1.6%</span>
@@ -295,19 +332,9 @@ footer b{color:var(--kamenozoki);font-weight:500}
   <div class="meter"><i class="m1" style="width:50.0%"></i><i class="m2" style="width:14.0%"></i><i class="m3" style="width:21.5%"></i><i class="m4" style="width:4.8%"></i></div>
   <ul class="why"><li>20日の値幅が株価の84%（広いほど大きく動きやすい）</li><li>5/25/75日線が38%に広がっている</li><li>3か月の出来高が1年平均の3.15倍</li><li>20日で+20%・上げてきている</li><li>60日で+95%</li></ul>
   <div class="chart"></div>
-</div><div class="card clickable hot" data-code="4392">
-  <div class="top">
-    <div><span class="code">4392</span><span class="name">ＦＩＧ</span><span class="chev">▶</span></div>
-    <div class="score">88<small>/100</small></div>
-  </div>
-  <div class="px">1,132円 <span class="">-13.0%</span>
-     ・出来高2.1倍 ・売買代金57.0億</div>
-  <div class="meter"><i class="m1" style="width:50.0%"></i><i class="m2" style="width:17.0%"></i><i class="m3" style="width:17.0%"></i><i class="m4" style="width:4.0%"></i></div>
-  <ul class="why"><li>20日の値幅が株価の48%（広いほど大きく動きやすい）</li><li>5/25/75日線が19%に広がっている</li><li>3か月の出来高が1年平均の2.30倍</li><li>20日で+22%・上げてきている</li><li>60日で-49%</li></ul>
-  <div class="chart"></div>
 </div><div class="card clickable hot" data-code="2354">
   <div class="top">
-    <div><span class="code">2354</span><span class="name">ＹＥ　ＤＩＧＩＴＡＬ</span><span class="chev">▶</span></div>
+    <div><span class="code">2354</span><span class="name">ＹＥ　ＤＩＧＩＴＡＬ</span><span class="days">4日連続</span><span class="chev">▶</span></div>
     <div class="score">88<small>/100</small></div>
   </div>
   <div class="px">1,325円 <span class="">-3.3%</span>
@@ -315,19 +342,9 @@ footer b{color:var(--kamenozoki);font-weight:500}
   <div class="meter"><i class="m1" style="width:47.6%"></i><i class="m2" style="width:15.4%"></i><i class="m3" style="width:20.2%"></i><i class="m4" style="width:4.8%"></i></div>
   <ul class="why"><li>20日の値幅が株価の39%（広いほど大きく動きやすい）</li><li>5/25/75日線が21%に広がっている</li><li>3か月の出来高が1年平均の3.14倍</li><li>20日で+12%・上げてきている</li><li>60日で+32%</li></ul>
   <div class="chart"></div>
-</div><div class="card clickable hot" data-code="150A">
-  <div class="top">
-    <div><span class="code">150A</span><span class="name">ＪＳＨ</span><span class="chev">▶</span></div>
-    <div class="score">88<small>/100</small></div>
-  </div>
-  <div class="px">746円 <span class="">-6.9%</span>
-     ・出来高0.8倍 ・売買代金4.7億</div>
-  <div class="meter"><i class="m1" style="width:42.8%"></i><i class="m2" style="width:20.2%"></i><i class="m3" style="width:20.1%"></i><i class="m4" style="width:4.8%"></i></div>
-  <ul class="why"><li>20日の値幅が株価の50%（広いほど大きく動きやすい）</li><li>5/25/75日線が37%に広がっている</li><li>3か月の出来高が1年平均の3.92倍</li><li>20日で+15%・上げてきている</li><li>60日で+116%</li></ul>
-  <div class="chart"></div>
 </div><div class="card clickable hot" data-code="6522">
   <div class="top">
-    <div><span class="code">6522</span><span class="name">アスタリスク</span><span class="chev">▶</span></div>
+    <div><span class="code">6522</span><span class="name">アスタリスク</span><span class="days">5日連続</span><span class="chev">▶</span></div>
     <div class="score">87<small>/100</small></div>
   </div>
   <div class="px">2,008円 <span class="">-0.5%</span>
@@ -335,19 +352,9 @@ footer b{color:var(--kamenozoki);font-weight:500}
   <div class="meter"><i class="m1" style="width:50.0%"></i><i class="m2" style="width:14.0%"></i><i class="m3" style="width:21.0%"></i><i class="m4" style="width:2.1%"></i></div>
   <ul class="why"><li>20日の値幅が株価の44%（広いほど大きく動きやすい）</li><li>5/25/75日線が36%に広がっている</li><li>3か月の出来高が1年平均の1.93倍</li><li>20日で+36%・上げてきている</li><li>60日で+121%</li></ul>
   <div class="chart"></div>
-</div><div class="card clickable hot" data-code="3187">
-  <div class="top">
-    <div><span class="code">3187</span><span class="name">ミラタップ</span><span class="chev">▶</span></div>
-    <div class="score">85<small>/100</small></div>
-  </div>
-  <div class="px">371円 <span class="up">+3.6%</span>
-     ・出来高1.0倍 ・売買代金0.3億</div>
-  <div class="meter"><i class="m1" style="width:41.1%"></i><i class="m2" style="width:21.9%"></i><i class="m3" style="width:17.4%"></i><i class="m4" style="width:5.0%"></i></div>
-  <ul class="why"><li>20日の値幅が株価の35%（広いほど大きく動きやすい）</li><li>5/25/75日線が26%に広がっている</li><li>3か月の出来高が1年平均の1.55倍</li><li>20日で+8%・上げてきている</li><li>60日で+50%</li></ul>
-  <div class="chart"></div>
 </div><div class="card clickable hot" data-code="280A">
   <div class="top">
-    <div><span class="code">280A</span><span class="name">ＴＭＨ</span><span class="chev">▶</span></div>
+    <div><span class="code">280A</span><span class="name">ＴＭＨ</span><span class="days">2日連続</span><span class="chev">▶</span></div>
     <div class="score">85<small>/100</small></div>
   </div>
   <div class="px">1,144円 <span class="">-2.4%</span>
@@ -359,59 +366,9 @@ footer b{color:var(--kamenozoki);font-weight:500}
 
   <h2>反転候補 <span class="n">likely to move, pulled back</span></h2>
   <p class="lead">同じく大きく動きやすい形だが、直近は下げてきている。上下比はこちらのほうが良い（2.22 対 1.62）。</p>
-  <div class="card clickable" data-code="4424">
+  <div class="card clickable" data-code="5074">
   <div class="top">
-    <div><span class="code">4424</span><span class="name">Ａｍａｚｉａ</span><span class="chev">▶</span></div>
-    <div class="score">91<small>/100</small></div>
-  </div>
-  <div class="px">337円 <span class="">-4.8%</span>
-     ・出来高0.1倍 ・売買代金4.0億</div>
-  <div class="meter"><i class="m1" style="width:50.0%"></i><i class="m2" style="width:23.0%"></i><i class="m3" style="width:14.0%"></i><i class="m4" style="width:3.8%"></i></div>
-  <ul class="why"><li>20日の値幅が株価の46%（広いほど大きく動きやすい）</li><li>5/25/75日線が22%に広がっている</li><li>3か月の出来高が1年平均の2.75倍</li><li>20日で-1%・下げてきている</li><li>60日で+59%</li></ul>
-  <div class="chart"></div>
-</div><div class="card clickable" data-code="2693">
-  <div class="top">
-    <div><span class="code">2693</span><span class="name">ＹＫＴ</span><span class="chev">▶</span></div>
-    <div class="score">89<small>/100</small></div>
-  </div>
-  <div class="px">300円 <span class="">+0.0%</span>
-     ・出来高0.3倍 ・売買代金0.4億</div>
-  <div class="meter"><i class="m1" style="width:47.5%"></i><i class="m2" style="width:23.0%"></i><i class="m3" style="width:16.0%"></i><i class="m4" style="width:2.1%"></i></div>
-  <ul class="why"><li>20日の値幅が株価の39%（広いほど大きく動きやすい）</li><li>5/25/75日線が15%に広がっている</li><li>3か月の出来高が1年平均の1.98倍</li><li>20日で-22%・下げてきている</li><li>60日で-42%</li></ul>
-  <div class="chart"></div>
-</div><div class="card clickable" data-code="9256">
-  <div class="top">
-    <div><span class="code">9256</span><span class="name">サクシード</span><span class="chev">▶</span></div>
-    <div class="score">86<small>/100</small></div>
-  </div>
-  <div class="px">1,138円 <span class="">-0.9%</span>
-     ・出来高0.2倍 ・売買代金4.9億</div>
-  <div class="meter"><i class="m1" style="width:50.0%"></i><i class="m2" style="width:17.0%"></i><i class="m3" style="width:16.2%"></i><i class="m4" style="width:2.9%"></i></div>
-  <ul class="why"><li>20日の値幅が株価の195%（広いほど大きく動きやすい）</li><li>5/25/75日線が130%に広がっている</li><li>3か月の出来高が1年平均の3.80倍</li><li>20日で-65%・下げてきている</li><li>60日で-51%</li></ul>
-  <div class="chart"></div>
-</div><div class="card clickable" data-code="4935">
-  <div class="top">
-    <div><span class="code">4935</span><span class="name">リベルタ</span><span class="chev">▶</span></div>
-    <div class="score">86<small>/100</small></div>
-  </div>
-  <div class="px">211円 <span class="">-1.9%</span>
-     ・出来高0.2倍 ・売買代金3.6億</div>
-  <div class="meter"><i class="m1" style="width:48.5%"></i><i class="m2" style="width:23.0%"></i><i class="m3" style="width:14.0%"></i><i class="m4" style="width:0.6%"></i></div>
-  <ul class="why"><li>20日の値幅が株価の54%（広いほど大きく動きやすい）</li><li>5/25/75日線が16%に広がっている</li><li>3か月の出来高が1年平均の1.95倍</li><li>20日で-23%・下げてきている</li><li>直近の安値が切り上がっている</li></ul>
-  <div class="chart"></div>
-</div><div class="card clickable" data-code="3449">
-  <div class="top">
-    <div><span class="code">3449</span><span class="name">テクノフレックス</span><span class="chev">▶</span></div>
-    <div class="score">85<small>/100</small></div>
-  </div>
-  <div class="px">3,745円 <span class="">-6.5%</span>
-     ・出来高0.9倍 ・売買代金8.8億</div>
-  <div class="meter"><i class="m1" style="width:50.0%"></i><i class="m2" style="width:14.0%"></i><i class="m3" style="width:17.0%"></i><i class="m4" style="width:4.0%"></i></div>
-  <ul class="why"><li>20日の値幅が株価の43%（広いほど大きく動きやすい）</li><li>5/25/75日線が58%に広がっている</li><li>3か月の出来高が1年平均の1.70倍</li><li>20日で-22%・下げてきている</li><li>60日で-45%</li></ul>
-  <div class="chart"></div>
-</div><div class="card clickable" data-code="5074">
-  <div class="top">
-    <div><span class="code">5074</span><span class="name">テスホールディングス</span><span class="chev">▶</span></div>
+    <div><span class="code">5074</span><span class="name">テスホールディングス</span><span class="new">NEW</span><span class="chev">▶</span></div>
     <div class="score">85<small>/100</small></div>
   </div>
   <div class="px">611円 <span class="">-3.6%</span>
@@ -421,7 +378,7 @@ footer b{color:var(--kamenozoki);font-weight:500}
   <div class="chart"></div>
 </div><div class="card clickable" data-code="4047">
   <div class="top">
-    <div><span class="code">4047</span><span class="name">関東電化工業</span><span class="chev">▶</span></div>
+    <div><span class="code">4047</span><span class="name">関東電化工業</span><span class="new">NEW</span><span class="chev">▶</span></div>
     <div class="score">85<small>/100</small></div>
   </div>
   <div class="px">2,326円 <span class="">-3.1%</span>
@@ -429,9 +386,59 @@ footer b{color:var(--kamenozoki);font-weight:500}
   <div class="meter"><i class="m1" style="width:50.0%"></i><i class="m2" style="width:14.0%"></i><i class="m3" style="width:17.0%"></i><i class="m4" style="width:3.6%"></i></div>
   <ul class="why"><li>20日の値幅が株価の30%（広いほど大きく動きやすい）</li><li>5/25/75日線が23%に広がっている</li><li>3か月の出来高が1年平均の1.98倍</li><li>20日で-18%・下げてきている</li><li>60日で-31%</li></ul>
   <div class="chart"></div>
+</div><div class="card clickable" data-code="4424">
+  <div class="top">
+    <div><span class="code">4424</span><span class="name">Ａｍａｚｉａ</span><span class="days">21日連続</span><span class="chev">▶</span></div>
+    <div class="score">91<small>/100</small></div>
+  </div>
+  <div class="px">337円 <span class="">-4.8%</span>
+     ・出来高0.1倍 ・売買代金4.0億</div>
+  <div class="meter"><i class="m1" style="width:50.0%"></i><i class="m2" style="width:23.0%"></i><i class="m3" style="width:14.0%"></i><i class="m4" style="width:3.8%"></i></div>
+  <ul class="why"><li>20日の値幅が株価の46%（広いほど大きく動きやすい）</li><li>5/25/75日線が22%に広がっている</li><li>3か月の出来高が1年平均の2.75倍</li><li>20日で-1%・下げてきている</li><li>60日で+59%</li></ul>
+  <div class="chart"></div>
+</div><div class="card clickable" data-code="2693">
+  <div class="top">
+    <div><span class="code">2693</span><span class="name">ＹＫＴ</span><span class="days">3日連続</span><span class="chev">▶</span></div>
+    <div class="score">89<small>/100</small></div>
+  </div>
+  <div class="px">300円 <span class="">+0.0%</span>
+     ・出来高0.3倍 ・売買代金0.4億</div>
+  <div class="meter"><i class="m1" style="width:47.5%"></i><i class="m2" style="width:23.0%"></i><i class="m3" style="width:16.0%"></i><i class="m4" style="width:2.1%"></i></div>
+  <ul class="why"><li>20日の値幅が株価の39%（広いほど大きく動きやすい）</li><li>5/25/75日線が15%に広がっている</li><li>3か月の出来高が1年平均の1.98倍</li><li>20日で-22%・下げてきている</li><li>60日で-42%</li></ul>
+  <div class="chart"></div>
+</div><div class="card clickable" data-code="9256">
+  <div class="top">
+    <div><span class="code">9256</span><span class="name">サクシード</span><span class="days">8日連続</span><span class="chev">▶</span></div>
+    <div class="score">86<small>/100</small></div>
+  </div>
+  <div class="px">1,138円 <span class="">-0.9%</span>
+     ・出来高0.2倍 ・売買代金4.9億</div>
+  <div class="meter"><i class="m1" style="width:50.0%"></i><i class="m2" style="width:17.0%"></i><i class="m3" style="width:16.2%"></i><i class="m4" style="width:2.9%"></i></div>
+  <ul class="why"><li>20日の値幅が株価の195%（広いほど大きく動きやすい）</li><li>5/25/75日線が130%に広がっている</li><li>3か月の出来高が1年平均の3.80倍</li><li>20日で-65%・下げてきている</li><li>60日で-51%</li></ul>
+  <div class="chart"></div>
+</div><div class="card clickable" data-code="4935">
+  <div class="top">
+    <div><span class="code">4935</span><span class="name">リベルタ</span><span class="days">14日連続</span><span class="chev">▶</span></div>
+    <div class="score">86<small>/100</small></div>
+  </div>
+  <div class="px">211円 <span class="">-1.9%</span>
+     ・出来高0.2倍 ・売買代金3.6億</div>
+  <div class="meter"><i class="m1" style="width:48.5%"></i><i class="m2" style="width:23.0%"></i><i class="m3" style="width:14.0%"></i><i class="m4" style="width:0.6%"></i></div>
+  <ul class="why"><li>20日の値幅が株価の54%（広いほど大きく動きやすい）</li><li>5/25/75日線が16%に広がっている</li><li>3か月の出来高が1年平均の1.95倍</li><li>20日で-23%・下げてきている</li><li>直近の安値が切り上がっている</li></ul>
+  <div class="chart"></div>
+</div><div class="card clickable" data-code="3449">
+  <div class="top">
+    <div><span class="code">3449</span><span class="name">テクノフレックス</span><span class="days">4日連続</span><span class="chev">▶</span></div>
+    <div class="score">85<small>/100</small></div>
+  </div>
+  <div class="px">3,745円 <span class="">-6.5%</span>
+     ・出来高0.9倍 ・売買代金8.8億</div>
+  <div class="meter"><i class="m1" style="width:50.0%"></i><i class="m2" style="width:14.0%"></i><i class="m3" style="width:17.0%"></i><i class="m4" style="width:4.0%"></i></div>
+  <ul class="why"><li>20日の値幅が株価の43%（広いほど大きく動きやすい）</li><li>5/25/75日線が58%に広がっている</li><li>3か月の出来高が1年平均の1.70倍</li><li>20日で-22%・下げてきている</li><li>60日で-45%</li></ul>
+  <div class="chart"></div>
 </div><div class="card clickable" data-code="6969">
   <div class="top">
-    <div><span class="code">6969</span><span class="name">松尾電機</span><span class="chev">▶</span></div>
+    <div><span class="code">6969</span><span class="name">松尾電機</span><span class="days">2日連続</span><span class="chev">▶</span></div>
     <div class="score">84<small>/100</small></div>
   </div>
   <div class="px">1,005円 <span class="up">+0.9%</span>
@@ -2146,6 +2153,7 @@ footer b{color:var(--kamenozoki);font-weight:500}
     <div>上抜け直後<b class="hot">1</b></div>
     <div>セットアップ<b>8</b></div>
     <div>判定対象<b>474</b></div>
+    
   </div>
 
   
@@ -2630,6 +2638,7 @@ footer b{color:var(--kamenozoki);font-weight:500}
     <div>転換確定<b class="hot">3</b></div>
     <div>転換待ち<b>40<span style="font-size:13px;color:var(--muted)">/176</span></b></div>
     <div>判定対象<b>179</b></div>
+    
   </div>
 
   <details class="note">
@@ -4558,7 +4567,7 @@ L0を割らずに反発すれば確定に上がる可能性があり、割れば
   判定は当日の引け値ベースなので、実際に入れるのは翌日以降になる。<br>
   <b>測れていないこと</b>　浮動株比率・信用残・株主構成・板の厚みは日足データに入っていない。
   需給の軽さは売買代金と株価水準で代用しているにすぎない。<br>
-  生成 2026-08-23 09:54　基準日 2026-08-21
+  生成 2026-08-23 10:07　基準日 2026-08-21
 </footer>
 </div>
 <script type="application/json" id="chartdata" data-url="charts.json"></script>
