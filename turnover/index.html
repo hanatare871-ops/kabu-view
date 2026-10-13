@@ -1,0 +1,481 @@
+<title>東証 売買代金ランキング</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { bg:'var(--bg)', surface:'var(--surface)', line:'var(--line)', ink:'var(--ink)', muted:'var(--muted)',
+      accent:'var(--accent)', accentsoft:'var(--accent-soft)', up:'var(--up)', down:'var(--down)', soft:'var(--soft)', newbadge:'var(--new)' },
+    fontFamily: { sans:['"BIZ UDPGothic"','"Hiragino Kaku Gothic ProN"','Meiryo','sans-serif'], num:['"IBM Plex Sans"','"BIZ UDPGothic"','sans-serif'] }
+  } }
+};
+</script>
+<style>
+/* Layout: 上部に市況サマリー → フィルタ面 → 横スクロール可能なランキング表。個別ページは同じ枠内で切替 */
+:root{
+  --bg:#f4f6f9; --surface:#ffffff; --line:#e1e6ee; --ink:#132030; --muted:#5d6979;
+  --accent:#1d5cbf; --accent-soft:#e7effb; --up:#0d8a4e; --down:#cf3329; --soft:#eef2f7; --new:#d7261c;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0e131a; --surface:#151c25; --line:#253041; --ink:#e5eaf1; --muted:#93a0b1;
+  --accent:#6ea3f3; --accent-soft:#1a2a43; --up:#3ccf86; --down:#ff6b5f; --soft:#1b2430; --new:#ff4d40; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0e131a; --surface:#151c25; --line:#253041; --ink:#e5eaf1; --muted:#93a0b1;
+  --accent:#6ea3f3; --accent-soft:#1a2a43; --up:#3ccf86; --down:#ff6b5f; --soft:#1b2430; --new:#ff4d40; color-scheme:dark }
+body{ background:var(--bg); color:var(--ink); font-family:"BIZ UDPGothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif; }
+.num{ font-family:"IBM Plex Sans","BIZ UDPGothic",sans-serif; font-variant-numeric:tabular-nums; }
+.wrap{ max-width:1180px; margin:0 auto; padding-inline:16px; padding-block:16px 40px; }
+input[type=range]{ -webkit-appearance:none; appearance:none; background:transparent; pointer-events:none; position:absolute; inset:0; width:100%; margin:0; }
+input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; pointer-events:auto; width:18px; height:18px; border-radius:50%; background:var(--surface); border:2px solid var(--accent); cursor:pointer; }
+input[type=range]::-moz-range-thumb{ pointer-events:auto; width:14px; height:14px; border-radius:50%; background:var(--surface); border:2px solid var(--accent); cursor:pointer; }
+input[type=range]:focus-visible::-webkit-slider-thumb{ box-shadow:0 0 0 3px var(--accent-soft); }
+:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+th{ white-space:nowrap; }
+@media (prefers-reduced-motion: reduce){ *{ transition:none!important; } }
+</style>
+
+<div id="root"><div class="wrap" style="color:var(--muted)">読み込み中…</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useMemo, useEffect } = React;
+
+/* =========================================================
+   1. ダミーデータ定義
+   [コード, 銘柄名, 市場, 株価(円), 時価総額(億), 平常時売買代金(億), プロコン, 公式HP, ETF/ETN]
+   ========================================================= */
+const MASTER = [
+  ['6976','太陽誘電','プライム',3250,4230,180,true,'https://www.yuden.co.jp/'],
+  ['593A','ティアフォー','グロース',1890,1520,95,false,'https://tier4.jp/'],
+  ['4493','サイバーセキュリティクラウド','グロース',2410,240,22,false,'https://www.cscloud.co.jp/'],
+  ['6525','KOKUSAI ELECTRIC','プライム',3480,8150,310,true,'https://www.kokusai-electric.com/'],
+  ['6323','ローツェ','プライム',2120,3820,140,true,'https://www.rorze.com/'],
+  ['7203','トヨタ自動車','プライム',2890,471000,1150,true,'https://global.toyota/jp/'],
+  ['8306','三菱UFJフィナンシャル・グループ','プライム',2210,268000,1480,true,'https://www.mufg.jp/'],
+  ['9984','ソフトバンクグループ','プライム',16800,247000,2650,true,'https://group.softbank/'],
+  ['8035','東京エレクトロン','プライム',27400,129000,1720,true,'https://www.tel.co.jp/'],
+  ['6857','アドバンテスト','プライム',13900,106000,1950,true,'https://www.advantest.com/ja/'],
+  ['6920','レーザーテック','プライム',21300,20100,820,true,'https://www.lasertec.co.jp/'],
+  ['7011','三菱重工業','プライム',3950,133000,1380,true,'https://www.mhi.com/jp/'],
+  ['6758','ソニーグループ','プライム',4120,251000,980,true,'https://www.sony.com/ja/'],
+  ['9983','ファーストリテイリング','プライム',51200,163000,640,true,'https://www.fastretailing.com/jp/'],
+  ['6501','日立製作所','プライム',4380,201000,860,true,'https://www.hitachi.co.jp/'],
+  ['7974','任天堂','プライム',12600,164000,720,true,'https://www.nintendo.co.jp/'],
+  ['8058','三菱商事','プライム',3180,128000,540,true,'https://www.mitsubishicorp.com/jp/ja/'],
+  ['8316','三井住友フィナンシャルグループ','プライム',3920,155000,690,true,'https://www.smfg.co.jp/'],
+  ['4063','信越化学工業','プライム',5070,98600,450,true,'https://www.shinetsu.co.jp/jp/'],
+  ['6146','ディスコ','プライム',46500,50400,780,true,'https://www.disco.co.jp/jp/'],
+  ['5803','フジクラ','プライム',9850,29100,1040,true,'https://www.fujikura.co.jp/'],
+  ['7012','川崎重工業','プライム',10200,17100,520,true,'https://www.khi.co.jp/'],
+  ['4568','第一三共','プライム',3720,70400,410,true,'https://www.daiichisankyo.co.jp/'],
+  ['6098','リクルートホールディングス','プライム',9120,140000,430,true,'https://recruit-holdings.com/ja/'],
+  ['9432','NTT','プライム',152,137000,380,true,'https://group.ntt/jp/'],
+  ['8411','みずほフィナンシャルグループ','プライム',4410,111000,520,true,'https://www.mizuho-fg.co.jp/'],
+  ['7267','本田技研工業','プライム',1560,77300,330,true,'https://global.honda/jp/'],
+  ['3110','日東紡績','プライム',7840,3050,160,true,'https://www.nittobo.co.jp/'],
+  ['6526','ソシオネクスト','プライム',2750,4870,240,true,'https://www.socionext.com/jp/'],
+  ['5016','JX金属','プライム',1480,13700,420,true,'https://www.jx-nmm.com/'],
+  ['4385','メルカリ','プライム',2630,4310,190,true,'https://about.mercari.com/'],
+  ['5253','カバー','グロース',2180,1450,120,false,'https://cover-corp.com/'],
+  ['3697','SHIFT','プライム',1320,3480,110,true,'https://www.shiftinc.jp/'],
+  ['4478','フリー','グロース',3010,1780,85,false,'https://corp.freee.co.jp/'],
+  ['2160','ジーエヌアイグループ','グロース',3340,1640,70,false,'https://www.gnipharma.com/'],
+  ['4592','サンバイオ','グロース',1520,1050,88,false,'https://www.sanbio.com/'],
+  ['3350','メタプラネット','スタンダード',890,10200,980,false,'https://metaplanet.jp/'],
+  ['2586','フルッタフルッタ','グロース',148,52,18,false,'https://www.frutafruta.com/'],
+  ['6232','ACSL','グロース',1210,190,26,false,'https://www.acsl.co.jp/'],
+  ['9227','マイクロ波化学','グロース',980,170,15,false,'https://mwcc.jp/'],
+  ['7014','名村造船所','スタンダード',2960,2060,95,false,'https://www.namura.co.jp/'],
+  ['6227','AIメカテック','スタンダード',4250,280,30,false,'https://www.aimechatec.com/'],
+  ['5595','QPS研究所','グロース',1780,670,72,false,'https://i-qps.net/'],
+  ['141A','北陸精機サービス','TOKYO PRO MARKET',820,24,0.4,false,'https://www.jpx.co.jp/equities/products/tpm/'],
+  ['9355','みなと湾岸ロジ','TOKYO PRO MARKET',1500,38,0.6,false,'https://www.jpx.co.jp/equities/products/tpm/'],
+  ['1570','NEXT FUNDS 日経平均レバレッジ・インデックス連動型上場投信','その他',29800,4850,920,false,'https://nextfunds.jp/',true],
+  ['1357','NEXT FUNDS 日経ダブルインバース・インデックス連動型上場投信','その他',372,2210,310,false,'https://nextfunds.jp/',true],
+  ['1306','NEXT FUNDS TOPIX連動型上場投信','その他',3150,262000,260,false,'https://nextfunds.jp/',true],
+  ['2038','NEXT NOTES 日経・TOCOM 原油ダブル・ブル ETN','その他',2480,120,24,false,'https://nextfunds.jp/',true],
+];
+const MARKETS = ['プライム','スタンダード','グロース','TOKYO PRO MARKET','その他'];
+
+/* 乱数（シード固定＝毎回同じダミーデータ） */
+function hashStr(s){ let h=2166136261; for(const c of s){ h^=c.charCodeAt(0); h=Math.imul(h,16777619);} return h>>>0; }
+function mulberry(seed){ return function(){ seed=seed+0x6D2B79F5|0; let t=Math.imul(seed^seed>>>15,1|seed); t=t+Math.imul(t^t>>>7,61|t)^t; return((t^t>>>14)>>>0)/4294967296; }; }
+function gauss(r){ let u=0; while(!u) u=r(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*r()); }
+const pad=n=>String(n).padStart(2,'0');
+const iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+function businessDays(endIso,n){
+  const [y,m,d]=endIso.split('-').map(Number); const cur=new Date(y,m-1,d); const out=[];
+  while(out.length<n){ const w=cur.getDay(); if(w!==0&&w!==6) out.unshift(iso(cur)); cur.setDate(cur.getDate()-1); }
+  return out;
+}
+function tickRound(p){ return p>=10000?Math.round(p/10)*10 : p>=3000?Math.round(p) : Math.round(p*10)/10; }
+
+/* 営業日×銘柄の日足を生成 */
+const LATEST='2026-10-09', N_DAYS=40;
+const DATES = businessDays(LATEST, N_DAYS);
+const SERIES = {}; // code -> [{date,open,high,low,close,volume,turnover,cap}]
+MASTER.forEach(([code,name,mkt,price,cap,baseTo,pro,url,etf])=>{
+  const r=mulberry(hashStr(code)); const shares=cap*1e8/price;
+  const vol = mkt==='グロース'?0.038 : mkt==='スタンダード'?0.03 : etf?0.017 : 0.022;
+  let p=price*(0.85+r()*0.3); const rows=[];
+  DATES.forEach(date=>{
+    const spike = r()<0.07; const jump = spike ? (r()<0.75?1:-1)*(0.05+r()*0.12) : 0;
+    const prev=p; const ret=gauss(r)*vol+jump; p=Math.max(1,prev*(1+ret));
+    const open=prev*(1+gauss(r)*vol*0.4); const hi=Math.max(open,p)*(1+r()*vol*0.6); const lo=Math.min(open,p)*(1-r()*vol*0.6);
+    const to=baseTo*Math.exp(gauss(r)*0.35)*(spike?3+r()*5:1)*(1+Math.abs(ret)*6);
+    rows.push({date,open:tickRound(open),high:tickRound(hi),low:tickRound(lo),close:tickRound(p),turnover:to,volume:Math.round(to*1e8/p/100)*100,cap:shares*p/1e8});
+  });
+  SERIES[code]=rows;
+});
+
+/* =========================================================
+   2. データ取得層  ★本物のAPIに差し替える時はここだけ書き換える
+   例) getDay: fetch(`data/${date}.json`).then(r=>r.json())
+   返す形さえ同じなら画面側はそのまま動く
+   ========================================================= */
+/* 本番データ（turnover.py が作る dates.json / data/ / history/ を同じフォルダから読む） */
+const RealSource = {
+  async listDates(){ const r=await fetch('dates.json',{cache:'no-cache'}); if(!r.ok) throw new Error('no data'); return r.json(); },
+  async getDay(date){ const r=await fetch(`data/${date}.json`); if(!r.ok) throw new Error('この日のデータはありません'); return r.json(); },
+  async getHistory(code, untilDate){
+    const r=await fetch(`history/${code.slice(0,2)}.json`); if(!r.ok) return [];
+    const rows=((await r.json())[code]||[]).filter(x=>x[0]<=untilDate).slice(-30);
+    return rows.map(([date,open,high,low,close,turnover])=>({date,open,high,low,close,turnover}));
+  },
+};
+let DataSource; // 起動時に本番データが見つかれば RealSource、なければ DummySource
+
+/* ダミーデータ（本番データが無い環境＝プレビュー用） */
+const DummySource = {
+  async listDates(){ return DATES.slice(1).reverse(); },              // 新しい順
+  async getDay(date){
+    const i=DATES.indexOf(date); if(i<1) throw new Error('この日のデータはありません');
+    const r=mulberry(hashStr('meta'+date)); const total=4440; const flat=90+Math.floor(r()*120);
+    const up=Math.floor((total-flat)*(0.28+r()*0.42));
+    return {
+      date, prevDate:DATES[i-1],
+      meta:{ total, up, down: total-flat-up, flat },
+      rows: MASTER.map(([code,name,market,,,,procon,url,etf])=>{
+        const t=SERIES[code][i], y=SERIES[code][i-1];
+        const rr=mulberry(hashStr('fund'+code));
+        return { code,name,market,procon,url,etf:!!etf,
+          ...t, prevClose:y.close, prevTurnover:y.turnover, prevCap:y.cap,
+          per: etf?null:+(8+rr()*45).toFixed(1), pbr: etf?null:+(0.6+rr()*7).toFixed(2), divYield: etf?null:+(rr()*3.8).toFixed(2) };
+      })
+    };
+  },
+  async getHistory(code, untilDate){ const i=DATES.indexOf(untilDate); return SERIES[code].slice(Math.max(0,i-29),i+1); },
+};
+
+/* =========================================================
+   3. 表示用ユーティリティ
+   ========================================================= */
+const fmtInt=n=>n==null?'—':Math.round(n).toLocaleString('ja-JP');
+const fmtOku=n=>n==null?'—':n>=100?Math.round(n).toLocaleString('ja-JP'):n.toFixed(1);
+const fmtPrice=n=>n==null?'—':n.toLocaleString('ja-JP',{maximumFractionDigits:1});
+const pct=(a,b)=>(a/b-1)*100;
+const fmtDate=s=>{ const [y,m,d]=s.split('-').map(Number); const w='日月火水木金土'[new Date(y,m-1,d).getDay()]; return `${y}/${pad(m)}/${pad(d)}（${w}）`; };
+const CAP_MIN=1, CAP_MAX=1000000; // 億円（スライダーは対数目盛り）
+const capToPos=v=>Math.round(Math.log10(Math.max(CAP_MIN,Math.min(CAP_MAX,v)))/6*1000);
+const posToCap=p=>{ const v=Math.pow(10,p/1000*6); return v<10?Math.round(v):v<1000?Math.round(v/10)*10:Math.round(v/100)*100; };
+
+const marketStyle={ 'プライム':'text-accent bg-accentsoft', 'スタンダード':'text-muted bg-soft', 'グロース':'text-up bg-soft', 'TOKYO PRO MARKET':'text-muted bg-soft', 'その他':'text-muted bg-soft' };
+const marketShort=m=>m==='TOKYO PRO MARKET'?'TPM':m;
+
+function ChangeText({value,className=''}){
+  if(value==null||isNaN(value)) return <span className={className}>—</span>;
+  const c=value>0?'text-up':value<0?'text-down':'text-muted';
+  return <span className={`num ${c} ${className}`}>{value>0?'+':''}{value.toFixed(2)}%</span>;
+}
+
+/* =========================================================
+   4. ランキング算出（検索語は順位に影響させない）
+   ========================================================= */
+function passFilter(row,f,useCap){
+  if(f.markets.length && !f.markets.includes(row.market)) return false;
+  if(f.excludeEtf && row.etf) return false;
+  if(f.procon && !row.procon) return false;
+  if(f.capMin!=null && useCap<f.capMin) return false;
+  if(f.capMax!=null && useCap>f.capMax) return false;
+  return true;
+}
+function rankBy(rows,key){ const m={}; [...rows].sort((a,b)=>b[key]-a[key]).forEach((r,i)=>m[r.code]=i+1); return m; }
+
+/* =========================================================
+   5. 画面
+   ========================================================= */
+function App(){
+  const [dates,setDates]=useState([]);
+  const [date,setDate]=useState(null);
+  const [day,setDay]=useState(null);
+  const [error,setError]=useState('');
+  const [query,setQuery]=useState('');
+  const [markets,setMarkets]=useState([]);           // 空 = すべて
+  const [excludeEtf,setExcludeEtf]=useState(false);
+  const [procon,setProcon]=useState(false);
+  const [capMin,setCapMin]=useState(null);
+  const [capMax,setCapMax]=useState(null);
+  const [sort,setSort]=useState({key:'rank',dir:'asc'});
+  const [selected,setSelected]=useState(null);
+
+  const [demo,setDemo]=useState(true);
+  useEffect(()=>{ (async()=>{
+    let d=[];
+    try{ d=await RealSource.listDates(); }catch(e){}
+    if(d.length){ DataSource=RealSource; setDemo(false); } else { DataSource=DummySource; d=await DummySource.listDates(); }
+    setDates(d); setDate(d[0]);
+  })(); },[]);
+  useEffect(()=>{ if(!date) return; setError(''); DataSource.getDay(date).then(setDay).catch(e=>setError(e.message)); },[date]);
+
+  const f={markets,excludeEtf,procon,capMin,capMax};
+  const table=useMemo(()=>{
+    if(!day) return [];
+    const today=day.rows.filter(r=>passFilter(r,f,r.cap));
+    const prev=day.rows.filter(r=>passFilter(r,f,r.prevCap)).map(r=>({...r,turnover:r.prevTurnover}));
+    const tr=rankBy(today,'turnover'), pr=rankBy(prev,'turnover');
+    let rows=today.map(r=>({...r,rank:tr[r.code],prevRank:pr[r.code]??null,chg:pct(r.close,r.prevClose),
+      isNew: tr[r.code]<=20 && (pr[r.code]==null || pr[r.code]>20)}));
+    const q=query.trim().toLowerCase();
+    if(q) rows=rows.filter(r=>r.code.toLowerCase().includes(q)||r.name.toLowerCase().includes(q));
+    const {key,dir}=sort; const s=dir==='asc'?1:-1;
+    rows.sort((a,b)=>{ const x=a[key],y=b[key];
+      if(x==null) return 1; if(y==null) return -1;
+      return (typeof x==='string'?x.localeCompare(y,'ja'):x-y)*s; });
+    return rows;
+  },[day,markets,excludeEtf,procon,capMin,capMax,query,sort]);
+
+  if(selected && day){
+    const row=day.rows.find(r=>r.code===selected);
+    const ranked=table.find(r=>r.code===selected);
+    return <Detail row={row} rank={ranked?.rank} prevRank={ranked?.prevRank} date={day.date} onBack={()=>{ setSelected(null); window.scrollTo(0,0); }}/>;
+  }
+
+  const newCount=table.filter(r=>r.isNew).length;
+  return (
+    <div className="wrap flex flex-col gap-4">
+      <Header day={day} dates={dates} date={date} setDate={setDate} demo={demo}/>
+      <Filters {...{query,setQuery,sort,setSort,markets,setMarkets,excludeEtf,setExcludeEtf,procon,setProcon,capMin,setCapMin,capMax,setCapMax}}/>
+      {error && <div className="rounded-md border border-line bg-surface p-4 text-down">{error}</div>}
+      <section className="rounded-lg border border-line bg-surface">
+        <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line px-4 py-3">
+          <h2 className="text-[15px] font-bold">売買代金ランキング <span className="ml-1 text-xs font-normal text-muted">{day && fmtDate(day.date)}</span></h2>
+          <p className="text-xs text-muted"><span className="num">{table.length}</span> 銘柄表示 ・ NEW <span className="num font-bold text-newbadge">{newCount}</span> 件</p>
+        </div>
+        <RankTable rows={table} sort={sort} setSort={setSort} onOpen={c=>{ setSelected(c); window.scrollTo(0,0); }}/>
+      </section>
+      <p className="text-xs leading-relaxed text-muted">※ {demo?'表示中の数値はすべてダミーデータです。':'売買代金は「(高値+安値+終値)/3×出来高」による近似値です。時価総額は発行済株式数×終値。'}順位は絞り込み条件（市場・時価総額など）の中で計算し、検索語では変わりません。NEW＝前営業日21位以下（または対象外）から当日20位以内に入った銘柄。プロコンあり＝プログラム売買が関与している銘柄（{demo?'ダミーでは大型株に付与':'TOPIX500採用銘柄で代用'}）。</p>
+    </div>
+  );
+}
+
+function Header({day,dates,date,setDate,demo}){
+  const m=day?.meta;
+  return (
+    <header className="flex flex-col gap-4 rounded-lg border border-line bg-surface p-4 md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col gap-1">
+        <div className="flex items-center gap-2">
+          <span className="inline-block h-5 w-1.5 rounded-sm bg-accent"></span>
+          <h1 className="text-lg font-bold tracking-wide">東証 売買代金ランキング</h1>
+          {demo && <span className="rounded border border-line px-1.5 py-0.5 text-[10px] text-muted">DEMO DATA</span>}
+        </div>
+        <label className="flex items-center gap-2 text-xs text-muted" htmlFor="date">
+          対象日
+          <select id="date" value={date||''} onChange={e=>setDate(e.target.value)}
+            className="num rounded-md border border-line bg-surface px-2 py-1 text-sm text-ink">
+            {dates.map(d=><option key={d} value={d}>{fmtDate(d)}</option>)}
+          </select>
+        </label>
+      </div>
+      <dl className="grid grid-cols-3 gap-2 md:gap-6">
+        <Stat label="収録銘柄数" value={m&&fmtInt(m.total)} cls="text-ink"/>
+        <Stat label="値上がり" value={m&&fmtInt(m.up)} cls="text-up"/>
+        <Stat label="値下がり" value={m&&fmtInt(m.down)} cls="text-down"/>
+      </dl>
+    </header>
+  );
+}
+function Stat({label,value,cls}){
+  return <div className="flex flex-col"><dt className="text-[11px] tracking-wider text-muted">{label}</dt><dd className={`num text-xl font-semibold md:text-2xl ${cls}`}>{value??'—'}</dd></div>;
+}
+
+function Filters(p){
+  const toggleMarket=m=>p.setMarkets(cur=>cur.includes(m)?cur.filter(x=>x!==m):[...cur,m]);
+  const lo=p.capMin==null?0:capToPos(p.capMin), hi=p.capMax==null?1000:capToPos(p.capMax);
+  const sortOptions=[['rank','asc','売買代金ランキング'],['cap','desc','時価総額が大きい順'],['chg','desc','値上がり率順'],['chg','asc','値下がり率順'],['code','asc','銘柄コード順']];
+  const sortVal=`${p.sort.key}:${p.sort.dir}`;
+  const chip=(active)=>`rounded-full border px-3 py-1 text-xs transition-colors ${active?'border-accent bg-accentsoft text-accent font-bold':'border-line bg-surface text-muted hover:text-ink'}`;
+  return (
+    <section className="flex flex-col gap-4 rounded-lg border border-line bg-surface p-4">
+      <div className="grid gap-3 md:grid-cols-[1fr_240px]">
+        <div className="relative">
+          <input id="q" type="search" value={p.query} onChange={e=>p.setQuery(e.target.value)} placeholder="銘柄コード・銘柄名で検索（例: 6976 / 太陽誘電）"
+            className="w-full rounded-md border border-line bg-surface py-2 pl-9 pr-3 text-sm text-ink placeholder:text-muted"/>
+          <svg className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2" viewBox="0 0 20 20" fill="none" stroke="var(--muted)" strokeWidth="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+        </div>
+        <select id="sort" value={sortOptions.some(o=>`${o[0]}:${o[1]}`===sortVal)?sortVal:''} onChange={e=>{ const [key,dir]=e.target.value.split(':'); p.setSort({key,dir}); }}
+          className="rounded-md border border-line bg-surface px-3 py-2 text-sm text-ink">
+          {!sortOptions.some(o=>`${o[0]}:${o[1]}`===sortVal) && <option value="">（列見出しで並べ替え中）</option>}
+          {sortOptions.map(([k,d,l])=><option key={k+d} value={`${k}:${d}`}>{l}</option>)}
+        </select>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <span className="text-[11px] tracking-wider text-muted">市場（複数選択可）</span>
+        <div className="flex flex-wrap gap-2">
+          <button type="button" className={chip(p.markets.length===0)} onClick={()=>p.setMarkets([])}>すべて</button>
+          {MARKETS.map(m=><button type="button" key={m} className={chip(p.markets.includes(m))} onClick={()=>toggleMarket(m)} aria-pressed={p.markets.includes(m)}>{m}</button>)}
+        </div>
+        <div className="flex flex-wrap gap-x-5 gap-y-2 pt-1 text-sm">
+          <label className="flex items-center gap-2" title="プログラム売買（コンピュータによる自動・一括売買）が関与している銘柄に絞り込みます"><input id="procon" type="checkbox" className="h-4 w-4 accent-[var(--accent)]" checked={p.procon} onChange={e=>p.setProcon(e.target.checked)}/>プロコンあり<span className="text-[11px] text-muted">（プログラム売買関与）</span></label>
+          <label className="flex items-center gap-2"><input id="etf" type="checkbox" className="h-4 w-4 accent-[var(--accent)]" checked={p.excludeEtf} onChange={e=>p.setExcludeEtf(e.target.checked)}/>上場投信を除く（ETF・ETN等）</label>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <span className="text-[11px] tracking-wider text-muted">時価総額（億円）</span>
+          <button type="button" onClick={()=>{p.setCapMin(null);p.setCapMax(null);}} className="text-xs text-accent hover:underline disabled:opacity-40" disabled={p.capMin==null&&p.capMax==null}>制限なしに戻す</button>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <CapInput id="capmin" value={p.capMin} onChange={p.setCapMin} placeholder="下限なし"/>
+          <span className="text-muted">〜</span>
+          <CapInput id="capmax" value={p.capMax} onChange={p.setCapMax} placeholder="上限なし"/>
+          <span className="text-xs text-muted">億円</span>
+        </div>
+        <div className="relative h-6">
+          <div className="absolute left-0 right-0 top-1/2 h-1 -translate-y-1/2 rounded bg-soft"></div>
+          <div className="absolute top-1/2 h-1 -translate-y-1/2 rounded bg-accent" style={{left:`${lo/10}%`,right:`${100-hi/10}%`}}></div>
+          <input id="capmin-range" type="range" min="0" max="1000" value={lo} aria-label="時価総額の下限"
+            onChange={e=>{ const v=Math.min(+e.target.value,hi-10); p.setCapMin(v<=0?null:posToCap(v)); }}/>
+          <input id="capmax-range" type="range" min="0" max="1000" value={hi} aria-label="時価総額の上限"
+            onChange={e=>{ const v=Math.max(+e.target.value,lo+10); p.setCapMax(v>=1000?null:posToCap(v)); }}/>
+        </div>
+        <div className="num flex justify-between text-[10px] text-muted"><span>1</span><span>100</span><span>1万</span><span>100万</span></div>
+      </div>
+    </section>
+  );
+}
+function CapInput({id,value,onChange,placeholder}){
+  return <input id={id} type="number" min="0" inputMode="numeric" value={value??''} placeholder={placeholder}
+    onChange={e=>{ const v=e.target.value; onChange(v===''?null:Math.max(0,+v)); }}
+    className="num w-32 rounded-md border border-line bg-surface px-2 py-1.5 text-right text-sm text-ink placeholder:text-muted"/>;
+}
+
+function RankTable({rows,sort,setSort,onOpen}){
+  const cols=[
+    ['rank','売買代金順位','text-right','asc'],['prevRank','前営業日順位','text-right','asc'],['code','コード','text-left','asc'],
+    ['name','銘柄名','text-left','asc'],['market','市場','text-left','asc'],['turnover','売買代金(億円)','text-right','desc'],
+    ['chg','騰落率','text-right','desc'],['cap','時価総額・最新(億円)','text-right','desc'],
+  ];
+  const click=(k,def)=>setSort(s=>s.key===k?{key:k,dir:s.dir==='asc'?'desc':'asc'}:{key:k,dir:def});
+  const [limit,setLimit]=useState(200);  // 全銘柄を一度に描くとスマホで重いので200件ずつ
+  if(!rows.length) return <p className="px-4 py-10 text-center text-sm text-muted">条件に合う銘柄がありません。市場や時価総額の条件をゆるめてください。</p>;
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full min-w-[760px] border-collapse text-sm">
+        <thead><tr className="border-b border-line bg-soft text-xs text-muted">
+          {cols.map(([k,l,a,def])=>{ const on=sort.key===k;
+            return <th key={k} className={`px-3 py-2 font-normal ${a}`}>
+              <button type="button" onClick={()=>click(k,def)} className={`inline-flex items-center gap-1 ${on?'font-bold text-ink':''}`}>
+                {l}<span className="num text-[10px]" aria-hidden="true">{on?(sort.dir==='asc'?'▲':'▼'):'↕'}</span>
+              </button></th>; })}
+        </tr></thead>
+        <tbody>
+          {rows.slice(0,limit).map(r=>(
+            <tr key={r.code} className={`border-b border-line last:border-0 hover:bg-soft ${r.rank<=20?'':'text-[13px]'}`}>
+              <td className="num px-3 py-2 text-right font-semibold">{r.rank}</td>
+              <td className="num px-3 py-2 text-right text-muted">
+                <span className="inline-flex items-center justify-end gap-1.5">
+                  {r.isNew && <span className="rounded-sm bg-newbadge px-1.5 py-px text-[10px] font-bold leading-4 text-white">NEW</span>}
+                  {r.prevRank??'—'}
+                </span>
+              </td>
+              <td className="num px-3 py-2 text-muted">{r.code}</td>
+              <td className="max-w-[300px] px-3 py-2">
+                <button type="button" onClick={()=>onOpen(r.code)} className="truncate text-left font-bold text-accent hover:underline" title={r.name} style={{maxWidth:'100%'}}>{r.name}</button>
+              </td>
+              <td className="px-3 py-2"><span className={`whitespace-nowrap rounded px-1.5 py-0.5 text-[11px] ${marketStyle[r.market]}`}>{marketShort(r.market)}</span></td>
+              <td className="num px-3 py-2 text-right font-semibold">{fmtOku(r.turnover)}</td>
+              <td className="px-3 py-2 text-right"><ChangeText value={r.chg}/></td>
+              <td className="num px-3 py-2 text-right">{fmtOku(r.cap)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {rows.length>limit && <div className="border-t border-line p-3 text-center">
+        <button type="button" onClick={()=>setLimit(l=>l+200)} className="rounded-md border border-line px-4 py-1.5 text-sm text-accent hover:bg-soft">さらに200件表示（残り <span className="num">{rows.length-limit}</span> 件）</button>
+      </div>}
+    </div>
+  );
+}
+
+/* ---------- 個別銘柄ページ ---------- */
+function Detail({row,rank,prevRank,date,onBack}){
+  const [hist,setHist]=useState([]);
+  useEffect(()=>{ DataSource.getHistory(row.code,date).then(setHist); },[row.code,date]);
+  const chg=row.close-row.prevClose, chgP=pct(row.close,row.prevClose);
+  const items=[
+    ['始値',fmtPrice(row.open)+' 円'],['高値',fmtPrice(row.high)+' 円'],['安値',fmtPrice(row.low)+' 円'],['前日終値',fmtPrice(row.prevClose)+' 円'],
+    ['出来高',fmtInt(row.volume)+' 株'],['売買代金',fmtOku(row.turnover)+' 億円'],['時価総額',fmtOku(row.cap)+' 億円'],['売買代金順位',rank?`${rank} 位（前日 ${prevRank??'—'} 位）`:'—'],
+    ['PER（予）',row.per!=null?row.per+' 倍':'—'],['PBR',row.pbr!=null?row.pbr+' 倍':'—'],['配当利回り（予）',row.divYield!=null?row.divYield+' %':'—'],['プログラム売買',row.procon?'関与あり':'—'],
+  ];
+  return (
+    <div className="wrap flex flex-col gap-4">
+      <button type="button" onClick={onBack} className="inline-flex w-fit items-center gap-1 rounded-md border border-line bg-surface px-3 py-1.5 text-sm text-accent hover:bg-soft">← ランキングに戻る</button>
+      <section className="flex flex-col gap-4 rounded-lg border border-line bg-surface p-4 md:p-6">
+        <div className="flex flex-col gap-1">
+          <p className="num text-xs text-muted">{row.code} ・ {row.market}{row.etf?' ・ ETF/ETN':''} ・ {fmtDate(date)} 終値</p>
+          <h1 className="text-xl font-bold md:text-2xl" style={{textWrap:'balance'}}>{row.name}</h1>
+        </div>
+        <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+          <span className="num text-4xl font-semibold">{fmtPrice(row.close)}<span className="ml-1 text-base text-muted">円</span></span>
+          <span className={`num text-lg ${chg>0?'text-up':chg<0?'text-down':'text-muted'}`}>{chg>0?'+':''}{fmtPrice(Math.round(chg*10)/10)}（<ChangeText value={chgP} className="!text-inherit"/>）</span>
+        </div>
+        <PriceChart hist={hist}/>
+        <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-4">
+          {items.map(([k,v])=><div key={k} className="flex flex-col gap-0.5 bg-surface px-3 py-2.5"><dt className="text-[11px] text-muted">{k}</dt><dd className="num text-sm font-semibold">{v}</dd></div>)}
+        </dl>
+        {row.url
+          ? <a href={row.url} target="_blank" rel="noopener noreferrer" className="inline-flex w-fit items-center gap-1 rounded-md bg-accent px-4 py-2 text-sm font-bold hover:opacity-90" style={{color:'var(--surface)'}}>公式ホームページを開く ↗</a>
+          : <a href={`https://www.google.com/search?q=${encodeURIComponent(row.name+' 公式サイト')}`} target="_blank" rel="noopener noreferrer" className="inline-flex w-fit items-center gap-1 rounded-md border border-line px-4 py-2 text-sm text-accent hover:bg-soft">公式サイトを検索 ↗</a>}
+        <p className="text-xs text-muted">※ PER・PBR・配当利回りは取得できた銘柄のみ表示します（yfinance）。</p>
+      </section>
+    </div>
+  );
+}
+
+function PriceChart({hist}){
+  if(hist.length<2) return <div className="h-48 rounded-md bg-soft"></div>;
+  const W=720,H=220,PL=8,PR=52,PT=10,PB=22,VH=46;
+  const closes=hist.map(h=>h.close), mx=Math.max(...hist.map(h=>h.high)), mn=Math.min(...hist.map(h=>h.low));
+  const tmax=Math.max(...hist.map(h=>h.turnover));
+  const x=i=>PL+i*(W-PL-PR)/(hist.length-1);
+  const y=v=>PT+(mx-v)/(mx-mn||1)*(H-PT-PB-VH-6);
+  const line=closes.map((c,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(c).toFixed(1)}`).join('');
+  const area=`${line}L${x(hist.length-1)},${H-PB-VH-6}L${x(0)},${H-PB-VH-6}Z`;
+  const up=closes.at(-1)>=closes[0]; const col=up?'var(--up)':'var(--down)';
+  const ticks=[mx,(mx+mn)/2,mn];
+  const bw=(W-PL-PR)/hist.length*0.6;
+  return (
+    <div className="overflow-x-auto">
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full min-w-[480px]" role="img" aria-label="直近30営業日の終値と売買代金">
+        <defs><linearGradient id="g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor={col} stopOpacity="0.22"/><stop offset="1" stopColor={col} stopOpacity="0"/></linearGradient></defs>
+        {ticks.map((t,i)=><g key={i}><line x1={PL} x2={W-PR} y1={y(t)} y2={y(t)} stroke="var(--line)" strokeDasharray="3 3"/>
+          <text x={W-PR+6} y={y(t)+4} fontSize="11" fill="var(--muted)" className="num">{fmtPrice(tickRound(t))}</text></g>)}
+        <path d={area} fill="url(#g)"/>
+        <path d={line} fill="none" stroke={col} strokeWidth="2"/>
+        <circle cx={x(hist.length-1)} cy={y(closes.at(-1))} r="3.5" fill={col}/>
+        {hist.map((h,i)=>{ const bh=h.turnover/tmax*VH; return <rect key={i} x={x(i)-bw/2} y={H-PB-bh} width={bw} height={bh} fill="var(--accent)" opacity="0.35"/>; })}
+        <text x={W-PR+6} y={H-PB-VH+8} fontSize="10" fill="var(--muted)">売買代金</text>
+        {[0,Math.floor((hist.length-1)/2),hist.length-1].map(i=><text key={i} x={x(i)} y={H-6} fontSize="11" fill="var(--muted)" textAnchor={i===0?'start':i===hist.length-1?'end':'middle'} className="num">{hist[i].date.slice(5).replace('-','/')}</text>)}
+      </svg>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
